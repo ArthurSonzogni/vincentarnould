@@ -18,11 +18,11 @@
               </span>
               <span class="price">{{ product?.meta?.variants?.[variant]?.price }}</span>
             </div>
-            <div class="variant-selector">
-              <span class="title">Variante</span>
+            <div class="variant-selector mt-4">
+              <span class="text-xs text-gray-400 uppercase tracking-widest mb-1 block">Variante</span>
               <select
                 v-model="variant"
-                class="form-select"
+                class="w-full bg-transparent border-b border-gray-300 py-2 text-lg focus:outline-none focus:border-yellow-600 transition-colors cursor-pointer appearance-none"
                 >
                 <option
                   v-for="(v, index) in product?.meta?.variants"
@@ -37,12 +37,12 @@
             <UButton
               v-if="product?.meta?.variants?.[variant]?.payment_link"
               :href="product?.meta?.variants?.[variant]?.payment_link"
-              icon="fa6-solid:basket-shopping"
-              color="primary"
-              variant="soft"
-              class="mt-4"
+              icon="i-lucide-shopping-bag"
+              color="black"
+              variant="solid"
+              class="mt-6 w-full justify-center py-3 text-base tracking-wider uppercase"
               >
-              Acheter
+              Commander
             </UButton>
             <div v-if="product?.meta?.variants?.[variant]?.payment_link" class="klarna-advertisement text-center">
               Payez en 3x sans frais avec Klarna
@@ -73,11 +73,11 @@
             <p>{{ product.description }}</p>
             <hr />
 
-            <div class="variant-selector">
-              <span class="title">Variante</span>
+            <div class="variant-selector mt-8">
+              <span class="text-xs text-gray-400 uppercase tracking-widest mb-1 block">Variante</span>
               <select
                 v-model="variant"
-                class="form-select"
+                class="w-full bg-transparent border-b border-gray-300 py-2 text-lg focus:outline-none focus:border-yellow-600 transition-colors cursor-pointer appearance-none"
                 >
                 <option
                   v-for="(v, index) in product?.meta?.variants"
@@ -93,12 +93,13 @@
             <UButton
               v-if="product?.meta?.variants?.[variant]?.payment_link"
               :href="product?.meta?.variants?.[variant]?.payment_link"
-              color="neutral"
-              variant="soft"
+              color="black"
+              variant="solid"
               size="xl"
-              icon="fa6-solid:basket-shopping"
+              icon="i-lucide-shopping-bag"
+              class="w-full justify-center mt-8 py-4 text-base tracking-wider uppercase"
               >
-              Acheter
+              Commander
             </UButton>
             <div v-if="product?.meta?.variants?.[variant]?.payment_link" class="klarna-advertisement">
               Payez en 3x sans frais avec Klarna
@@ -132,32 +133,32 @@
 
     <hr/>
 
-    <template v-for="collection in Object
-      .values(collections)
-
-    ">
-
-      <div class="container">
-        <NuxtLink :to="collection.path">
-        <h1 class="other-product title font-title">{{ collection.title }}</h1>
+    <template v-for="collection in Object.values(collections)">
+      <div v-if="collection.products.length > 0" class="container mt-16">
+        <NuxtLink :to="collection.path" class="block text-center mb-8 hover:opacity-70 transition-opacity">
+          <h2 class="text-xs tracking-[0.2em] text-gray-400 uppercase mb-2">Découvrir</h2>
+          <h1 class="text-3xl font-title">{{ collection.title }}</h1>
         </NuxtLink>
 
         <div class="other-products-list">
-          <div
+          <NuxtLink 
             v-for="(product, index) in collection.products"
             :key="index"
+            :to="product.path"
             class="other-product"
-            >
-            <NuxtLink :to="product.path"> 
-            <img class="miniature"
-                 v-if="product?.meta?.variants?.[0]?.images?.[0]"
-                 :key="index"
-                 :src="product?.meta?.variants?.[0]?.images?.[0]?.image"
-                 />
-            <h2>{{ product.title }}</h2>
-            <p class="price">{{ product?.meta?.variants?.[0]?.price }}</p>
-            </NuxtLink>
-          </div>
+          >
+            <div class="image-wrapper">
+              <img class="miniature"
+                   v-if="product?.meta?.variants?.[0]?.images?.[0]"
+                   :src="product?.meta?.variants?.[0]?.images?.[0]?.image"
+                   :alt="product.title"
+              />
+            </div>
+            <div class="product-info mt-4 text-center">
+              <h3 class="text-lg font-semibold">{{ product.title }}</h3>
+              <p class="text-sm text-gray-500 mt-1">{{ product?.meta?.variants?.[0]?.price }}</p>
+            </div>
+          </NuxtLink>
         </div>
       </div>
     </template>
@@ -300,22 +301,31 @@ hr {
 
 
 .other-products-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
 }
 
 .other-product {
-  --width: 300px;
-  max-width: var(--width);
-  margin: 20px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.other-product .image-wrapper {
+  overflow: hidden;
+  background-color: #f9f9f9;
 }
 
 .miniature {
-  width: var(--width);
-  height: var(--width);
+  width: 100%;
+  aspect-ratio: 1;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.other-product:hover .miniature {
+  transform: scale(1.05);
 }
 
 .large_screen{
