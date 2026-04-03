@@ -119,11 +119,6 @@ const featuredProducts = Object.values(collections)
             </div>
           </NuxtLink>
         </div>
-        <div class="all-products-link">
-          <UButton to="/boutique" variant="ghost" color="black" icon="i-lucide-arrow-right" trailing>
-            Voir toute la boutique
-          </UButton>
-        </div>
       </div>
     </div>
 
