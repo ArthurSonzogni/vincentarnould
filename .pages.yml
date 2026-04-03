@@ -73,14 +73,6 @@ content:
         fields:
           - {name: "image", label: "Image", type: "image"}
 
-  - name: "about"
-    label: "À propos"
-    type: "file"
-    path: "content/about.md"
-    filename: "about.md"
-    fields:
-      - {name: "body", label: "Contenu", type: "rich-text"}
-
   - name: "cgu"
     label: "CGU"
     type: "file"
