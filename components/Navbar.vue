@@ -26,14 +26,14 @@ const logo = home.value?.meta?.logo;
     </button>
 
     <template #body>
-      <div class="flex flex-col h-full bg-white">
-        <!-- En-tête avec le logo -->
-        <div class="flex items-center justify-center py-10 border-b border-gray-100 relative">
-          <img v-if="logo" :src="logo" alt="Logo" class="h-32 object-contain" />
+      <div class="flex flex-col h-full bg-white relative">
+        <!-- Logo en haut -->
+        <div class="flex items-center justify-center w-full h-64 overflow-hidden bg-white border-b border-gray-100 shrink-0 pt-8">
+          <img v-if="logo" :src="logo" alt="Logo" class="h-full w-full object-contain scale-[1.2]" />
         </div>
 
         <!-- Corps du menu -->
-        <div class="flex-1 overflow-y-auto px-8 py-8">
+        <div class="flex-1 overflow-y-auto px-8 pt-8 pb-8">
           <div class="flex flex-col gap-6">
             <NuxtLink to="/" class="nav-item font-title text-xl tracking-wider text-gray-900 hover:text-yellow-600 transition-colors" @click="open = false">
               Accueil
