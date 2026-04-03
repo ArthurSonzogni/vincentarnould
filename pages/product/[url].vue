@@ -3,7 +3,7 @@
     <div class="main-container">
       <div class="images">
         <img class="image"
-             v-for="(image, index) in product.meta.variants[variant].images"
+             v-for="(image, index) in product?.meta?.variants?.[variant]?.images"
              :key="index"
              :src="image.image"
              />
@@ -16,7 +16,7 @@
               <span class="title mr-6">
                 {{ product.title }}
               </span>
-              <span class="price">{{ product.meta.variants[variant].price }}</span>
+              <span class="price">{{ product?.meta?.variants?.[variant]?.price }}</span>
             </div>
             <div class="variant-selector">
               <span class="title">Variante</span>
@@ -25,7 +25,7 @@
                 class="form-select"
                 >
                 <option
-                  v-for="(v, index) in product.meta.variants"
+                  v-for="(v, index) in product?.meta?.variants"
                   :key="index"
                   :value="index"
                   >
@@ -35,8 +35,8 @@
             </div>
 
             <UButton
-              v-if="product.meta.variants[variant].payment_link"
-              :href="product.meta.variants[variant].payment_link"
+              v-if="product?.meta?.variants?.[variant]?.payment_link"
+              :href="product?.meta?.variants?.[variant]?.payment_link"
               icon="fa6-solid:basket-shopping"
               color="primary"
               variant="soft"
@@ -44,17 +44,31 @@
               >
               Acheter
             </UButton>
-            <div v-if="product.meta.variants[variant].payment_link" class="klarna-advertisement text-center">
+            <div v-if="product?.meta?.variants?.[variant]?.payment_link" class="klarna-advertisement text-center">
               Payez en 3x sans frais avec Klarna
+            </div>
+            <div class="reassurance text-center mt-6 text-sm text-gray-600 flex flex-col gap-2">
+              <div class="flex items-center justify-center gap-2">
+                <UIcon name="i-lucide-shield-check" class="text-green-600 size-4" />
+                <span>S.A.V. à vie pour les gemmes</span>
+              </div>
+              <div class="flex items-center justify-center gap-2">
+                <UIcon name="i-lucide-hammer" class="text-yellow-600 size-4" />
+                <span>Fait main en France</span>
+              </div>
+              <div class="flex items-center justify-center gap-2">
+                <UIcon name="i-lucide-truck" class="text-blue-600 size-4" />
+                <span>Livraison sécurisée</span>
+              </div>
             </div>
           </div>
 
           <div class="large_screen">
             <h1 class="title font-title mr-6">
               {{ product.title }} /
-              {{ product.meta.variants[variant].title }}
+              {{ product?.meta?.variants?.[variant]?.title }}
             </h1>
-            <span class="price">{{ product.meta.variants[variant].price }}</span>
+            <span class="price">{{ product?.meta?.variants?.[variant]?.price }}</span>
             <hr />
             <p>{{ product.description }}</p>
             <hr />
@@ -66,7 +80,7 @@
                 class="form-select"
                 >
                 <option
-                  v-for="(v, index) in product.meta.variants"
+                  v-for="(v, index) in product?.meta?.variants"
                   :key="index"
                   :value="index"
                   >
@@ -77,8 +91,8 @@
             </div>
 
             <UButton
-              v-if="product.meta.variants[variant].payment_link"
-              :href="product.meta.variants[variant].payment_link"
+              v-if="product?.meta?.variants?.[variant]?.payment_link"
+              :href="product?.meta?.variants?.[variant]?.payment_link"
               color="neutral"
               variant="soft"
               size="xl"
@@ -86,8 +100,22 @@
               >
               Acheter
             </UButton>
-            <div v-if="product.meta.variants[variant].payment_link" class="klarna-advertisement">
+            <div v-if="product?.meta?.variants?.[variant]?.payment_link" class="klarna-advertisement">
               Payez en 3x sans frais avec Klarna
+            </div>
+            <div class="reassurance mt-6 text-sm text-gray-600 flex flex-col gap-2">
+              <div class="flex items-center gap-2">
+                <UIcon name="i-lucide-shield-check" class="text-green-600 size-4" />
+                <span>S.A.V. à vie pour les gemmes</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <UIcon name="i-lucide-hammer" class="text-yellow-600 size-4" />
+                <span>Fait main en France</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <UIcon name="i-lucide-truck" class="text-blue-600 size-4" />
+                <span>Livraison sécurisée</span>
+              </div>
             </div>
           </div>
         </div>
@@ -122,12 +150,12 @@
             >
             <NuxtLink :to="product.path"> 
             <img class="miniature"
-                 v-if="product.meta.variants[0].images[0]"
+                 v-if="product?.meta?.variants?.[0]?.images?.[0]"
                  :key="index"
-                 :src="product.meta.variants[0].images[0].image"
+                 :src="product?.meta?.variants?.[0]?.images?.[0]?.image"
                  />
             <h2>{{ product.title }}</h2>
-            <p class="price">{{ product.meta.variants[0].price }}</p>
+            <p class="price">{{ product?.meta?.variants?.[0]?.price }}</p>
             </NuxtLink>
           </div>
         </div>
@@ -159,7 +187,7 @@ try {
 }
 variant.value = Math.min(
   Math.max(variant.value, 0),
-  product.meta.variants.length - 1
+  (product?.meta?.variants?.length || 1) - 1
 );
 watch([variant], () => {
   router.replace({
@@ -172,8 +200,12 @@ watch([variant], () => {
 });
 
 useSeoMeta({
-  title: product.title,
+  title: `${product.title} | Vincent Arnould`,
   description: product.description,
+  ogTitle: `${product.title} | Vincent Arnould`,
+  ogDescription: product.description,
+  ogImage: () => product?.meta?.variants?.[variant.value]?.images?.[0]?.image || '',
+  twitterCard: 'summary_large_image',
 });
 </script>
 
@@ -255,7 +287,6 @@ html {
   color: #666;
   margin-top: 8px;
 }
-
 
 pre {
   overflow: scroll;

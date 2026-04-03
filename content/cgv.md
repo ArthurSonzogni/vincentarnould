@@ -1,9 +1,8 @@
- # Conditions Générales de Vente (CGV) – jewels-collab
- 
+ # Conditions Générales de Vente (CGV) – Vincent Arnould
+
  ## 1. Objet
- 
- Les présentes Conditions Générales de Vente (ci-après les « CGV ») régissent les ventes de produits proposés sur le site **jewels-collab** (ci-après le « Site »), exploité par l’entreprise jewels-collab, auprès de tout utilisateur (ci-après le « Client ») passant commande via le Site.
-  
+
+ Les présentes Conditions Générales de Vente (ci-après les « CGV ») régissent les ventes de produits proposés sur le site **Vincent Arnould** (ci-après le « Site »), exploité par l’entreprise Vincent Arnould, auprès de tout utilisateur (ci-après le « Client ») passant commande via le Site.  
  En validant sa commande, le Client accepte sans réserve les présentes CGV.
  
  ---
@@ -66,11 +65,10 @@
  ---
  
  ## 8. Responsabilité
- 
- jewels-collab ne saurait être tenue responsable en cas de mauvaise utilisation ou d’usure normale des produits.
- 
- La responsabilité de jewels-collab ne pourra être engagée en cas de retard ou d’inexécution contractuelle imputable au Client, à un tiers au contrat ou à un cas de force majeure.
- 
+
+ Vincent Arnould ne saurait être tenue responsable en cas de mauvaise utilisation ou d’usure normale des produits.
+
+ La responsabilité de Vincent Arnould ne pourra être engagée en cas de retard ou d’inexécution contractuelle imputable au Client, à un tiers au contrat ou à un cas de force majeure. 
  ---
  
  ## 9. Données personnelles

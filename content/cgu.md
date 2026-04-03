@@ -16,7 +16,7 @@ L’éditeur du Site se réserve le droit de modifier les présentes CGU à tout
 
 Dans les présentes CGU, les termes suivants auront la signification ci-dessous :
 
-*   **Site** : désigne le site internet jewels-collab accessible à l’adresse.
+*   **Site** : désigne le site internet Vincent Arnould accessible à l’adresse.
     
 *   **Utilisateur** : toute personne naviguant sur le Site, qu’elle soit simple visiteuse ou acheteuse.
     
@@ -50,7 +50,7 @@ L’Utilisateur s’engage à utiliser le Site conformément aux présentes CGU,
 
 ## 5\. Propriété intellectuelle
 
-L’ensemble des contenus présents sur le Site (textes, images, vidéos, logos, marques, etc.) est protégé par le droit de la propriété intellectuelle et est la propriété exclusive de jewels-collab ou de ses partenaires.
+L’ensemble des contenus présents sur le Site (textes, images, vidéos, logos, marques, etc.) est protégé par le droit de la propriété intellectuelle et est la propriété exclusive de Vincent Arnould ou de ses partenaires.
 
 Toute reproduction, représentation, modification, adaptation ou exploitation, partielle ou totale, de ces contenus, sans autorisation préalable écrite, est strictement interdite.
 
