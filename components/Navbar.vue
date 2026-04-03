@@ -38,6 +38,9 @@ const logo = home.value?.meta?.logo;
             <NuxtLink to="/" class="nav-item font-title text-xl tracking-wider text-gray-900 hover:text-yellow-600 transition-colors" @click="open = false">
               Accueil
             </NuxtLink>
+            <NuxtLink to="/boutique" class="nav-item font-title text-xl tracking-wider text-gray-900 hover:text-yellow-600 transition-colors" @click="open = false">
+              Boutique
+            </NuxtLink>
 
             <div class="w-8 h-px bg-yellow-600/50 my-2"></div>
 
