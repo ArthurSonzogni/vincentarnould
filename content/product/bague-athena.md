@@ -11,6 +11,7 @@ description: >
 variants:
   - title: Doré
     price: Disponible en 2026
+    payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05
     color: gold
     images:
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 206.jpg
@@ -21,6 +22,7 @@ variants:
       - image: /images/vincent_2.jpeg
   - title: Argent
     price: Disponible en 2026
+    payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05
     color: silver
     images:
       - image: /images/VINCENT ARNOULD 64-1.jpg
