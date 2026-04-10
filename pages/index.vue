@@ -2,9 +2,15 @@
 import { ref, onMounted } from 'vue';
 import { GetCollections } from '/composables/collections';
 
+const { data: home } = await useAsyncData(() =>
+  queryCollection('content').path('/').first()
+);
+
+const meta = home.value?.meta || {};
+
 useSeoMeta({
-  title: 'L\'Artisanat d\'Exception | Vincent Arnould',
-  description: 'Découvrez le savoir-faire de Vincent Arnould, lapidaire.',
+  title: meta.title || 'L\'Artisanat d\'Exception | Vincent Arnould',
+  description: meta.description || 'Découvrez le savoir-faire de Vincent Arnould, lapidaire.',
 })
 
 const showVideo = ref(false);
@@ -31,11 +37,11 @@ const featuredProducts = Object.values(collections)
   <div class="storytelling">
     <div class="hero">
       <div class="hero-background">
-        <img :class="{ 'fade-out': showVideo }" src="/images/about/vincent.jpeg" alt="Atelier" class="hero-image" />
+        <img :class="{ 'fade-out': showVideo && meta.hero?.video_id }" :src="meta.hero?.image || '/images/about/vincent.jpeg'" alt="Atelier" class="hero-image" />
         <iframe 
-          v-if="showVideo"
+          v-if="showVideo && meta.hero?.video_id"
           class="hero-video"
-          :src="`https://www.youtube.com/embed/tXxmUyMSLUA?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=tXxmUyMSLUA&controls=0&showinfo=0&rel=0`" 
+          :src="`https://www.youtube.com/embed/${meta.hero.video_id}?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=${meta.hero.video_id}&controls=0&showinfo=0&rel=0`" 
           title="Vincent Arnould Lapidaire" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -43,10 +49,10 @@ const featuredProducts = Object.values(collections)
         ></iframe>
       </div>
       <div class="hero-text">
-        <h1 class="font-title">L'Artisanat d'Exception</h1>
-        <p class="subtitle">Vincent Arnould, Lapidaire</p>
+        <h1 class="font-title">{{ meta.hero?.title || 'L\'Artisanat d\'Exception' }}</h1>
+        <p class="subtitle">{{ meta.hero?.subtitle || 'Vincent Arnould, Lapidaire' }}</p>
       </div>
-      <div v-if="showVideo" class="hero-controls">
+      <div v-if="showVideo && meta.hero?.video_id" class="hero-controls">
         <button @click="toggleMute" class="mute-btn">
           <UIcon :name="isMuted ? 'i-lucide-volume-x' : 'i-lucide-volume-2'" class="size-6" />
         </button>
@@ -55,43 +61,43 @@ const featuredProducts = Object.values(collections)
 
     <div class="content-section">
       <div class="text-block">
-        <h2 class="font-title">Un Savoir-Faire Forgé par le Temps</h2>
+        <h2 class="font-title">{{ meta.section1?.title }}</h2>
         <div class="divider"></div>
         <p>
-          Formé au sein de la prestigieuse Maison <strong>Van Cleef & Arpels</strong>, Vincent Arnould est un lapidaire dont l'expertise a été forgée durant 20 ans au sommet de la Haute Joaillerie française.
+          {{ meta.section1?.paragraph1 }}
         </p>
         <p>
-          En se lançant en freelance auprès d'un sertisseur rue de la Paix, il a perfectionné son art autour de gemmes rares et de clients prestigieux tels que Tiffany, Cartier et Chanel. Totalement autodidacte dans son évolution, il se nourrit des défis pour repousser les limites de son métier.
+          {{ meta.section1?.paragraph2 }}
         </p>
       </div>
       <div class="image-block">
         <div class="image-with-caption">
-          <img src="/images/vincent_apropos.jpeg" alt="Vincent Arnould au travail" />
-          <p class="image-caption">Vincent Arnould avec Son Altesse Sérénissime la Princesse Charlène de Monaco et sa fidèle Katia</p>
+          <img :src="meta.section1?.image" :alt="meta.section1?.title" />
+          <p class="image-caption">{{ meta.section1?.image_caption }}</p>
         </div>
       </div>
     </div>
 
     <div class="content-section reverse bg-gray">
       <div class="text-block">
-        <h2 class="font-title">L'Essence du Sur-Mesure</h2>
+        <h2 class="font-title">{{ meta.section2?.title }}</h2>
         <div class="divider"></div>
         <p>
-          Désormais, Vincent déploie cette exigence d'excellence dans l'univers de la haute fantaisie et des commandes spéciales.
+          {{ meta.section2?.paragraph1 }}
         </p>
         <p>
-          Chaque création est le fruit d'une alliance parfaite entre technique traditionnelle, précision millimétrée, et une véritable osmose avec les désirs du client. Une promesse d'unicité, avec des matériaux nobles et un S.A.V. à vie pour les gemmes.
+          {{ meta.section2?.paragraph2 }}
         </p>
         <div class="cta-wrapper">
-          <UButton to="/collection/sur_mesure" color="black" variant="solid" size="xl">
-            Créer votre bijou
+          <UButton :to="meta.section2?.cta_link" color="black" variant="solid" size="xl">
+            {{ meta.section2?.cta_text }}
           </UButton>
         </div>
       </div>
       <div class="image-block">
         <div class="image-with-caption">
-          <img src="/images/vincent_katia_improved.jpeg" alt="Création sur mesure" />
-          <p class="image-caption">Présentation d'une pièce d'exception dans le cadre prestigieux du Fouquet's à Paris</p>
+          <img :src="meta.section2?.image" :alt="meta.section2?.title" />
+          <p class="image-caption">{{ meta.section2?.image_caption }}</p>
         </div>
       </div>
     </div>
@@ -123,12 +129,12 @@ const featuredProducts = Object.values(collections)
     </div>
 
     <div class="footer-cta">
-      <h2 class="font-title">Discutons de votre projet</h2>
-      <p>L'opportunité de posséder un bijou entièrement conçu pour vous.</p>
+      <h2 class="font-title">{{ meta.footer_cta?.title }}</h2>
+      <p>{{ meta.footer_cta?.subtitle }}</p>
       <div class="contact-info">
-        <a href="mailto:vinc388@hotmail.fr">vinc388@hotmail.fr</a>
-        <a href="https://www.instagram.com/vincentarnould18" target="_blank">@vincentarnould18</a>
-        <span>06 17 40 20 13</span>
+        <a :href="`mailto:${meta.footer_cta?.email}`">{{ meta.footer_cta?.email }}</a>
+        <a :href="meta.footer_cta?.instagram_link" target="_blank">{{ meta.footer_cta?.instagram_handle }}</a>
+        <span>{{ meta.footer_cta?.phone }}</span>
       </div>
     </div>
   </div>
