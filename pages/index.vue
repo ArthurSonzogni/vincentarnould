@@ -102,6 +102,42 @@ const featuredProducts = Object.values(collections)
       </div>
     </div>
 
+    <div v-if="meta.section3" class="content-section">
+      <div class="text-block">
+        <h2 class="font-title">{{ meta.section3.title }}</h2>
+        <div class="divider"></div>
+        <p>
+          {{ meta.section3.paragraph1 }}
+        </p>
+        <p>
+          {{ meta.section3.paragraph2 }}
+        </p>
+        <div class="cta-wrapper">
+          <UButton :to="meta.section3.cta_link" color="black" variant="outline" size="xl">
+            {{ meta.section3.cta_text }}
+          </UButton>
+        </div>
+      </div>
+      <div class="image-block">
+        <div class="image-with-caption">
+          <img :src="meta.section3.image" :alt="meta.section3.title" />
+          <p class="image-caption">{{ meta.section3.image_caption }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="meta.how_it_works" class="how-it-works-section bg-gray">
+      <div class="container-inner">
+        <h2 class="font-title section-title">{{ meta.how_it_works.title }}</h2>
+        <div class="steps-grid">
+          <div v-for="(step, index) in meta.how_it_works.steps" :key="index" class="step-card">
+            <h3 class="step-title font-title">{{ step.title }}</h3>
+            <p class="step-description">{{ step.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="products-selection">
       <div class="container-inner">
         <h2 class="font-title section-title">Sélection de Créations</h2>
@@ -130,9 +166,26 @@ const featuredProducts = Object.values(collections)
 
     <div class="footer-cta">
       <h2 class="font-title">{{ meta.footer_cta?.title }}</h2>
-      <p>{{ meta.footer_cta?.subtitle }}</p>
+      <p class="subtitle-cta">{{ meta.footer_cta?.subtitle }}</p>
+      
+      <div v-if="meta.footer_cta?.scarcity" class="scarcity-box">
+        <UIcon name="i-lucide-clock" class="size-5" />
+        <p>{{ meta.footer_cta.scarcity }}</p>
+      </div>
+
+      <div class="contact-action">
+        <UButton 
+          :to="`mailto:${meta.footer_cta?.email}?subject=Demande de projet sur-mesure&body=Bonjour Vincent,%0D%0A%0D%0AJe vous contacte pour un projet sur-mesure pour [moi-même / mon animal].%0D%0A%0D%0AVoici quelques détails sur mon idée :%0D%0A...%0D%0A%0D%0ACordialement,`" 
+          color="black" 
+          variant="solid" 
+          size="xl"
+          icon="i-lucide-mail"
+        >
+          Démarrer un projet
+        </UButton>
+      </div>
+
       <div class="contact-info">
-        <a :href="`mailto:${meta.footer_cta?.email}`">{{ meta.footer_cta?.email }}</a>
         <a :href="meta.footer_cta?.instagram_link" target="_blank">{{ meta.footer_cta?.instagram_handle }}</a>
         <span>{{ meta.footer_cta?.phone }}</span>
       </div>
@@ -465,5 +518,67 @@ const featuredProducts = Object.values(collections)
 
 .contact-info a:hover {
   opacity: 0.6;
+}
+
+.how-it-works-section {
+  padding: 8rem 2rem;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.step-card {
+  padding: 2.5rem 2rem;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.step-title {
+  font-size: 1.5rem;
+  color: #c5a059;
+  margin-bottom: 1rem;
+}
+
+.step-description {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.subtitle-cta {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.scarcity-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: #fef9c3;
+  color: #854d0e;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  margin: 0 auto 3rem auto;
+  font-size: 0.95rem;
+  max-width: 600px;
+  text-align: left;
+}
+
+.contact-action {
+  margin-bottom: 3rem;
 }
 </style>

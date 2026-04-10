@@ -40,12 +40,36 @@ content:
           - {name: "cta_link", label: "Lien du bouton", type: "string"}
           - {name: "image", label: "Image", type: "image"}
           - {name: "image_caption", label: "Légende de l'image", type: "string"}
+      - name: "section3"
+        label: "Section 3 : Animaux de Compagnie"
+        type: "object"
+        fields:
+          - {name: "title", label: "Titre", type: "string"}
+          - {name: "paragraph1", label: "Paragraphe 1", type: "text"}
+          - {name: "paragraph2", label: "Paragraphe 2", type: "text"}
+          - {name: "cta_text", label: "Texte du bouton", type: "string"}
+          - {name: "cta_link", label: "Lien du bouton", type: "string"}
+          - {name: "image", label: "Image", type: "image"}
+          - {name: "image_caption", label: "Légende de l'image", type: "string"}
+      - name: "how_it_works"
+        label: "Comment ça marche ?"
+        type: "object"
+        fields:
+          - {name: "title", label: "Titre de la section", type: "string"}
+          - name: "steps"
+            label: "Étapes"
+            type: "object"
+            list: true
+            fields:
+              - {name: "title", label: "Titre de l'étape", type: "string"}
+              - {name: "description", label: "Description", type: "text"}
       - name: "footer_cta"
         label: "Pied de page : Appel à l'action"
         type: "object"
         fields:
           - {name: "title", label: "Titre", type: "string"}
           - {name: "subtitle", label: "Sous-titre", type: "string"}
+          - {name: "scarcity", label: "Texte de rareté (ex: places limitées)", type: "string"}
           - {name: "email", label: "Email", type: "string"}
           - {name: "instagram_handle", label: "Texte Instagram", type: "string"}
           - {name: "instagram_link", label: "Lien Instagram", type: "string"}

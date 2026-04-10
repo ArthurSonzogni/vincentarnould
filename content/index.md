@@ -21,9 +21,27 @@ section2:
   cta_link: "/collection/sur_mesure"
   image: "/images/vincent_katia_improved.jpeg"
   image_caption: "Présentation d'une pièce d'exception dans le cadre prestigieux du Fouquet's à Paris"
+section3:
+  title: "L'Élégance pour votre fidèle compagnon"
+  paragraph1: "Parce que nos animaux méritent la même attention que nous, Vincent Arnould a imaginé une gamme de créations joaillières dédiées aux chiens."
+  paragraph2: "Qu'il s'agisse de colliers ou de médailles, chaque pièce est façonnée avec les mêmes exigences de qualité et de raffinement que la haute joaillerie classique. Offrez à votre compagnon un bijou unique, reflet de votre attachement."
+  cta_text: "Découvrir la collection Canin"
+  cta_link: "/collection/accessories-for-dogs"
+  image: "/images/1760485436690.jpg"
+  image_caption: "Le savoir-faire au service de nos fidèles compagnons"
+how_it_works:
+  title: "Comment se déroule une création sur-mesure ?"
+  steps:
+    - title: "1. L'Échange"
+      description: "Nous discutons de vos envies, de votre histoire ou de celle de votre animal pour cerner précisément votre projet."
+    - title: "2. Le Croquis & Les Gemmes"
+      description: "Vincent vous propose des esquisses et une sélection de pierres précieuses ou fines adaptées à votre idée."
+    - title: "3. La Création"
+      description: "Votre bijou est façonné à la main, avec un soin méticuleux, dans le respect des traditions lapidaires."
 footer_cta:
   title: "Discutons de votre projet"
   subtitle: "L'opportunité de posséder un bijou entièrement conçu pour vous ou votre chien."
+  scarcity: "Afin de garantir l'excellence de chaque pièce, je n'accepte qu'un nombre limité de commandes sur-mesure par mois."
   email: "vinc388@hotmail.fr"
   instagram_handle: "@vincentarnould18"
   instagram_link: "https://www.instagram.com/vincentarnould18"
