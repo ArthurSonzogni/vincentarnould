@@ -27,7 +27,7 @@ section3:
   paragraph2: "Qu'il s'agisse de colliers ou de médailles, chaque pièce est façonnée avec les mêmes exigences de qualité et de raffinement que la haute joaillerie classique. Offrez à votre compagnon un bijou unique, reflet de votre attachement."
   cta_text: "Découvrir la collection Canin"
   cta_link: "/collection/accessories-for-dogs"
-  image: "/images/1760485436690.jpg"
+  image: "/images/file_00000000b67071f4987a48b089a05b26.png"
   image_caption: "Le savoir-faire au service de nos fidèles compagnons"
 how_it_works:
   title: "Comment se déroule une création sur-mesure ?"
