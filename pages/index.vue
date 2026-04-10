@@ -59,69 +59,26 @@ const featuredProducts = Object.values(collections)
       </div>
     </div>
 
-    <div class="content-section">
+    <div v-for="(section, index) in meta.sections" :key="index" class="content-section" :class="{ 'reverse bg-gray': index % 2 !== 0 }">
       <div class="text-block">
-        <h2 class="font-title">{{ meta.section1?.title }}</h2>
+        <h2 class="font-title">{{ section.title }}</h2>
         <div class="divider"></div>
         <p>
-          {{ meta.section1?.paragraph1 }}
+          {{ section.paragraph1 }}
         </p>
         <p>
-          {{ meta.section1?.paragraph2 }}
+          {{ section.paragraph2 }}
         </p>
-      </div>
-      <div class="image-block">
-        <div class="image-with-caption">
-          <img :src="meta.section1?.image" :alt="meta.section1?.title" />
-          <p class="image-caption">{{ meta.section1?.image_caption }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="content-section reverse bg-gray">
-      <div class="text-block">
-        <h2 class="font-title">{{ meta.section2?.title }}</h2>
-        <div class="divider"></div>
-        <p>
-          {{ meta.section2?.paragraph1 }}
-        </p>
-        <p>
-          {{ meta.section2?.paragraph2 }}
-        </p>
-        <div class="cta-wrapper">
-          <UButton :to="meta.section2?.cta_link" color="black" variant="solid" size="xl">
-            {{ meta.section2?.cta_text }}
+        <div v-if="section.cta_text && section.cta_link" class="cta-wrapper">
+          <UButton :to="section.cta_link" color="black" :variant="index === 2 ? 'outline' : 'solid'" size="xl">
+            {{ section.cta_text }}
           </UButton>
         </div>
       </div>
       <div class="image-block">
         <div class="image-with-caption">
-          <img :src="meta.section2?.image" :alt="meta.section2?.title" />
-          <p class="image-caption">{{ meta.section2?.image_caption }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div v-if="meta.section3" class="content-section">
-      <div class="text-block">
-        <h2 class="font-title">{{ meta.section3.title }}</h2>
-        <div class="divider"></div>
-        <p>
-          {{ meta.section3.paragraph1 }}
-        </p>
-        <p>
-          {{ meta.section3.paragraph2 }}
-        </p>
-        <div class="cta-wrapper">
-          <UButton :to="meta.section3.cta_link" color="black" variant="outline" size="xl">
-            {{ meta.section3.cta_text }}
-          </UButton>
-        </div>
-      </div>
-      <div class="image-block">
-        <div class="image-with-caption">
-          <img :src="meta.section3.image" :alt="meta.section3.title" />
-          <p class="image-caption">{{ meta.section3.image_caption }}</p>
+          <img :src="section.image" :alt="section.title" />
+          <p class="image-caption">{{ section.image_caption }}</p>
         </div>
       </div>
     </div>

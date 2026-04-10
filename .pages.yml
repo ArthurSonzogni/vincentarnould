@@ -20,35 +20,16 @@ content:
           - {name: "subtitle", label: "Sous-titre", type: "string"}
           - {name: "image", label: "Image de fond", type: "image"}
           - {name: "video_id", label: "ID Vidéo YouTube (optionnel)", type: "string"}
-      - name: "section1"
-        label: "Section 1 : Savoir-Faire"
+      - name: "sections"
+        label: "Sections de présentation"
         type: "object"
+        list: true
         fields:
           - {name: "title", label: "Titre", type: "string"}
           - {name: "paragraph1", label: "Paragraphe 1", type: "text"}
           - {name: "paragraph2", label: "Paragraphe 2", type: "text"}
-          - {name: "image", label: "Image", type: "image"}
-          - {name: "image_caption", label: "Légende de l'image", type: "string"}
-      - name: "section2"
-        label: "Section 2 : Sur-Mesure"
-        type: "object"
-        fields:
-          - {name: "title", label: "Titre", type: "string"}
-          - {name: "paragraph1", label: "Paragraphe 1", type: "text"}
-          - {name: "paragraph2", label: "Paragraphe 2", type: "text"}
-          - {name: "cta_text", label: "Texte du bouton", type: "string"}
-          - {name: "cta_link", label: "Lien du bouton", type: "string"}
-          - {name: "image", label: "Image", type: "image"}
-          - {name: "image_caption", label: "Légende de l'image", type: "string"}
-      - name: "section3"
-        label: "Section 3 : Animaux de Compagnie"
-        type: "object"
-        fields:
-          - {name: "title", label: "Titre", type: "string"}
-          - {name: "paragraph1", label: "Paragraphe 1", type: "text"}
-          - {name: "paragraph2", label: "Paragraphe 2", type: "text"}
-          - {name: "cta_text", label: "Texte du bouton", type: "string"}
-          - {name: "cta_link", label: "Lien du bouton", type: "string"}
+          - {name: "cta_text", label: "Texte du bouton (optionnel)", type: "string"}
+          - {name: "cta_link", label: "Lien du bouton (optionnel)", type: "string"}
           - {name: "image", label: "Image", type: "image"}
           - {name: "image_caption", label: "Légende de l'image", type: "string"}
       - name: "how_it_works"
