@@ -12,10 +12,10 @@ section1:
   paragraph1: "Formé au sein de la prestigieuse Maison **Van Cleef & Arpels**, Vincent Arnould est un lapidaire dont l'expertise a été forgée durant 20 ans au sommet de la Haute Joaillerie française."
   paragraph2: "En se lançant en freelance auprès d'un sertisseur rue de la Paix, il a perfectionné son art autour de gemmes rares et de clients prestigieux tels que Tiffany, Cartier et Chanel. Totalement autodidacte dans son évolution, il se nourrit des défis pour repousser les limites de son métier."
   image: "/images/vincent_apropos.jpeg"
-  image_caption: "Vincent Arnould avec Son Altesse Sérénissime la Princesse Charlène de Monaco et sa fidèle Katia"
+  image_caption: "Vincent Arnould avec Son Altesse Sérénissime la Princesse Charlène de Monaco et sa fidèle Kyta"
 section2:
   title: "L'Essence du Sur-Mesure"
-  paragraph1: "Désormais, Vincent déploie cette exigence d'excellence dans l'univers de la haute fantaisie et des commandes spéciales."
+  paragraph1: "Désormais, Vincent déploie cette exigence d'excellence dans l'univers de la joaillerie et des pièces personnalisées."
   paragraph2: "Chaque création est le fruit d'une alliance parfaite entre technique traditionnelle, précision millimétrée, et une véritable osmose avec les désirs du client. Une promesse d'unicité, avec des matériaux nobles et un S.A.V. à vie pour les gemmes."
   cta_text: "Créer votre bijou"
   cta_link: "/collection/sur_mesure"
@@ -23,7 +23,7 @@ section2:
   image_caption: "Présentation d'une pièce d'exception dans le cadre prestigieux du Fouquet's à Paris"
 footer_cta:
   title: "Discutons de votre projet"
-  subtitle: "L'opportunité de posséder un bijou entièrement conçu pour vous."
+  subtitle: "L'opportunité de posséder un bijou entièrement conçu pour vous ou votre chien."
   email: "vinc388@hotmail.fr"
   instagram_handle: "@vincentarnould18"
   instagram_link: "https://www.instagram.com/vincentarnould18"
