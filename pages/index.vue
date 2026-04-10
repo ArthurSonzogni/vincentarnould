@@ -6,11 +6,11 @@ const { data: home } = await useAsyncData(() =>
   queryCollection('content').path('/').first()
 );
 
-const meta = home.value?.meta || {};
+const meta = computed(() => home.value?.meta || {});
 
 useSeoMeta({
-  title: meta.title || 'L\'Artisanat d\'Exception | Vincent Arnould',
-  description: meta.description || 'Découvrez le savoir-faire de Vincent Arnould, lapidaire.',
+  title: home.value?.title || 'L\'Artisanat d\'Exception | Vincent Arnould',
+  description: home.value?.description || 'Découvrez le savoir-faire de Vincent Arnould, lapidaire.',
 })
 
 const showVideo = ref(false);
