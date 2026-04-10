@@ -8,4 +8,5 @@ images:
   - image: /images/IMG-20251019-WA0016.jpg
   - image: /images/IMG-20251019-WA0013.jpg
   - image: /images/IMG-20251019-WA0010.jpg
+  - image: /images/file_00000000b67071f4987a48b089a05b26-1.png
 ---
