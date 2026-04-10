@@ -50,24 +50,6 @@ content:
           - {name: "instagram_handle", label: "Texte Instagram", type: "string"}
           - {name: "instagram_link", label: "Lien Instagram", type: "string"}
           - {name: "phone", label: "Téléphone", type: "string"}
-      - name: "images"
-        label: "Anciennes Images (à ignorer)"
-        type: "object"
-        list: true
-        fields:
-          - {name: "title", label: "Titre", type: "string"}
-          - {name: "image_portrait", label: "Fond Portrait", type: "image"}
-          - {name: "image_landscape", label: "Fond Paysage", type: "image"}
-          - {name: "link", label: "Lien", type: "string"}
-      - name: "videos"
-        label: "Anciennes Vidéos (à ignorer)"
-        type: "object"
-        list: true
-        fields:
-          - {name: "title", label: "Titre", type: "string"}
-          - {name: "portrait", label: "Vidéo Portrait", type: "string"}
-          - {name: "landscape", label: "Vidéo Paysage", type: "string"}
-          - {name: "link", label: "Lien", type: "string"}
 
   - name: "product"
     label: "Produits"
