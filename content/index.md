@@ -28,7 +28,7 @@ sections:
       traditionnelle, précision millimétrée, et une véritable osmose avec les
       désirs du client. Une promesse d'unicité, avec des matériaux nobles et un
       S.A.V. à vie pour les gemmes.
-    cta_text: Créer votre bijou
+    cta_text: "Créer votre bijou, avec votre propre identité "
     cta_link: /collection/sur_mesure
     image: /images/vincent_katia_improved.jpeg
     image_caption: Présentation d'une pièce d'exception dans le cadre prestigieux du
@@ -42,7 +42,7 @@ sections:
       reflet de votre attachement et de l'amour que vous lui porté.
     cta_text: Découvrir la collection Canin / Chat
     cta_link: /collection/accessories-for-dogs
-    image: /images/file_00000000b67071f4987a48b089a05b26.png
+    image: /images/file_00000000d0a0720aa8687d4774b4591c-2.png
     image_caption: Le savoir-faire au service de nos fidèles compagnons
 how_it_works:
   title: Comment se déroule une création sur-mesure ?
