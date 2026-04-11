@@ -54,9 +54,6 @@ how_it_works:
       description: Vincent vous propose des esquisses et une sélection de pierres
         précieuses ou fines adaptées à votre idée, ainsi que différents cuir de
         qualité pour les bijoux  animaliers.
-    - {}
-    - {}
-    - {}
 footer_cta:
   title: Discutons de votre projet
   subtitle: L'opportunité de posséder un bijou entièrement conçu pour vous ou
