@@ -18,7 +18,7 @@
               </span>
               <span class="price">{{ product?.meta?.variants?.[variant]?.price }}</span>
             </div>
-            <div class="variant-selector mt-4">
+            <div v-if="product?.meta?.variants?.length > 1" class="variant-selector mt-4">
               <span class="text-xs text-gray-400 uppercase tracking-widest mb-1 block">Variante</span>
               <select
                 v-model="variant"
@@ -45,35 +45,29 @@
               Commander
             </UButton>
             <div v-if="product?.meta?.variants?.[variant]?.payment_link" class="klarna-advertisement text-center">
-              Payez en 3x sans frais avec Klarna
+              Payez en 2x sans frais avec Klarna
             </div>
             <div class="reassurance text-center mt-6 text-sm text-gray-600 flex flex-col gap-2">
               <div class="flex items-center justify-center gap-2">
-                <UIcon name="i-lucide-shield-check" class="text-green-600 size-4" />
-                <span>S.A.V. à vie pour les gemmes</span>
-              </div>
-              <div class="flex items-center justify-center gap-2">
                 <UIcon name="i-lucide-hammer" class="text-yellow-600 size-4" />
                 <span>Fait main en France</span>
-              </div>
-              <div class="flex items-center justify-center gap-2">
-                <UIcon name="i-lucide-truck" class="text-blue-600 size-4" />
-                <span>Livraison sécurisée</span>
               </div>
             </div>
           </div>
 
           <div class="large_screen">
             <h1 class="title font-title mr-6">
-              {{ product.title }} /
-              {{ product?.meta?.variants?.[variant]?.title }}
+              {{ product.title }} 
+              <span v-if="product?.meta?.variants?.length > 1">
+                / {{ product?.meta?.variants?.[variant]?.title }}
+              </span>
             </h1>
             <span class="price">{{ product?.meta?.variants?.[variant]?.price }}</span>
             <hr />
             <p>{{ product.description }}</p>
             <hr />
 
-            <div class="variant-selector mt-8">
+            <div v-if="product?.meta?.variants?.length > 1" class="variant-selector mt-8">
               <span class="text-xs text-gray-400 uppercase tracking-widest mb-1 block">Variante</span>
               <select
                 v-model="variant"
@@ -102,20 +96,12 @@
               Commander
             </UButton>
             <div v-if="product?.meta?.variants?.[variant]?.payment_link" class="klarna-advertisement">
-              Payez en 3x sans frais avec Klarna
+              Payez en 2x sans frais avec Klarna
             </div>
             <div class="reassurance mt-6 text-sm text-gray-600 flex flex-col gap-2">
               <div class="flex items-center gap-2">
-                <UIcon name="i-lucide-shield-check" class="text-green-600 size-4" />
-                <span>S.A.V. à vie pour les gemmes</span>
-              </div>
-              <div class="flex items-center gap-2">
                 <UIcon name="i-lucide-hammer" class="text-yellow-600 size-4" />
                 <span>Fait main en France</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <UIcon name="i-lucide-truck" class="text-blue-600 size-4" />
-                <span>Livraison sécurisée</span>
               </div>
             </div>
           </div>

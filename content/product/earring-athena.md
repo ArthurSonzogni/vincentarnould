@@ -17,10 +17,20 @@ variants:
       - image: /images/model-gold.jpeg
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 219.jpg
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 8.jpg
-  - title: Argent
+  - title: Argent poli
     price: Disponible en 2026
     payment_link: https://buy.stripe.com/5kQ8wQ2cw7o84yg5SH0kE04
     color: Argent
+    images:
+      - image: /images/VINCENT ARNOULD 6.jpg
+      - image: /images/VINCENT ARNOULD 3.jpg
+      - image: /images/VINCENT ARNOULD 9.jpg
+      - image: /images/IMG_2336.jpg
+      - image: /images/IMG_2335.jpg
+  - title: Canon de fusil
+    price: Disponible en 2026
+    payment_link: https://buy.stripe.com/5kQ8wQ2cw7o84yg5SH0kE04
+    color: Noir
     images:
       - image: /images/VINCENT ARNOULD 6.jpg
       - image: /images/VINCENT ARNOULD 3.jpg
