@@ -2,14 +2,13 @@
 url: commande-sur-mesure
 collection: sur_mesure
 title: "Boucles d'oreilles tsavorites et tourmalines "
-description: >
-  Ces boucles d'oreilles uniques sont une création sur mesure, réalisées avec
-  des tsavorites et des tourmalines. Chaque pierre a été soigneusement
+description: Ces boucles d'oreilles fruitté uniques sont une création sur
+  mesure, réalisées avec des poires tsavorites et des tourmalines facetté et
+  suiffé sur un pavage diamant en or blanc. Chaque pierre a été soigneusement
   sélectionnée pour sa couleur et sa brillance, créant un bijou d'exception qui
   ne manquera pas de faire tourner les têtes.
 variants:
-  - title: "BO fruité avec poires tsavorites,tourmalines suiffé et facetté sur
-      pavage diamant et or blanc "
+  - title: "BO fruité "
     price: Sur demande
     payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
     color: gold
