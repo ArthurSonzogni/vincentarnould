@@ -8,7 +8,8 @@ description: >
   sélectionnée pour sa couleur et sa brillance, créant un bijou d'exception qui
   ne manquera pas de faire tourner les têtes.
 variants:
-  - title: tsavorites et tourmalines
+  - title: "BO fruité avec poires tsavorites,tourmalines suiffé et facetté sur
+      pavage diamant et or blanc "
     price: Sur demande
     payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
     color: gold
