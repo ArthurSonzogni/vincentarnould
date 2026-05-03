@@ -10,7 +10,7 @@ description: >
   de sophistication à votre style.
 variants:
   - title: Doré
-    price: Disponible en 2026
+    price: "370 euros "
     payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05
     color: gold
     images:
@@ -20,7 +20,7 @@ variants:
       - image: /images/vincent_7.jpeg
       - image: /images/vincent_2.jpeg
   - title: "Argent brossé "
-    price: Disponible en 2026
+    price: "370 euros "
     payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05
     color: silver
     images:
@@ -30,7 +30,7 @@ variants:
       - image: /images/VINCENT ARNOULD 248-1.jpg
       - image: /images/IMG-20250804-WA0008.jpg
   - title: Canon de fusil
-    price: Disponible en 2026
+    price: "370 euros "
     payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05
     color: black
     images:
