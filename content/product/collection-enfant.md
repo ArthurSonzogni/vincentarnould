@@ -1,7 +1,7 @@
 ---
 url: Collection-enfant
 collection: Children
-title: "Collection enfant "
+title: "Collection enfant haute joaillerie "
 description: "L'amour d'une mère pour ses enfants un lien fort qui doit est figé
   pour la vie ou que vous soyez, cette collection rend hommage à ce lien unique
   "
