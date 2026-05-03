@@ -8,7 +8,7 @@ description: Rehaussez votre style avec ces élégantes boucles d'oreilles. Leur
   matériaux de qualité, elles offrent confort et durabilité.
 variants:
   - title: Doré
-    price: Disponible en 2026
+    price: "440 euros "
     payment_link: https://buy.stripe.com/5kQ8wQ2cw7o84yg5SH0kE04
     color: gold
     images:
@@ -17,8 +17,8 @@ variants:
       - image: /images/model-gold.jpeg
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 219.jpg
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 8.jpg
-  - title: Argent poli
-    price: Disponible en 2026
+  - title: "Argent brossé "
+    price: "440 euros "
     payment_link: https://buy.stripe.com/5kQ8wQ2cw7o84yg5SH0kE04
     color: Argent
     images:
@@ -28,13 +28,13 @@ variants:
       - image: /images/IMG_2336.jpg
       - image: /images/IMG_2335.jpg
   - title: Canon de fusil
-    price: Disponible en 2026
+    price: "440 euros "
     payment_link: https://buy.stripe.com/5kQ8wQ2cw7o84yg5SH0kE04
     color: Noir
     images:
-      - image: /images/VINCENT ARNOULD 6.jpg
-      - image: /images/VINCENT ARNOULD 3.jpg
-      - image: /images/VINCENT ARNOULD 9.jpg
-      - image: /images/IMG_2336.jpg
-      - image: /images/IMG_2335.jpg
+      - image: /images/file_0000000071b4720aae2dfa3c7c418950.png
+      - image: /images/file_00000000376c71f49225f737042599f8.png
+      - image: /images/file_000000002658720a9a0a7369b820ad26.png
+      - {}
+      - {}
 ---
