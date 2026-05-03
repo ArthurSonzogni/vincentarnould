@@ -1,14 +1,14 @@
 ---
 url: commande-sur-mesure
 collection: sur_mesure
-title: "Boucles d'oreilles fruitté avec tsavorites et tourmalines "
-description: Ces boucles d'oreilles fruitté uniques sont une création sur
-  mesure, réalisées avec des poires tsavorites et des tourmalines facetté et
+title: "Boucles d'oreilles haute joaillerie avec tsavorites et tourmalines "
+description: Ces boucles d'oreilles haute joaillerie uniques sont une création
+  sur mesure, réalisées avec des poires tsavorites et des tourmalines facetté et
   suiffé sur un pavage diamant en or blanc. Chaque pierre a été soigneusement
   sélectionnée pour sa couleur et sa brillance, créant un bijou d'exception qui
   ne manquera pas de faire tourner les têtes.
 variants:
-  - title: "BO fruitté "
+  - title: "BO haute joaillerie "
     price: Sur demande
     payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
     color: gold
