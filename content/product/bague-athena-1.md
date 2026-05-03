@@ -8,7 +8,7 @@ description: >
   tout en ajoutant une touche de sophistication à votre main.
 variants:
   - title: "Doré "
-    price: Disponible en 2026
+    price: 290 euros
     payment_link: https://buy.stripe.com/5kQ8wQ2cw7o84yg5SH0kE04
     color: Doré
     images:
@@ -17,7 +17,7 @@ variants:
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 182.jpg
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 92-1.jpg
   - title: Argent poli
-    price: Disponible en 2026
+    price: 290 euros
     payment_link: https://buy.stripe.com/cNi3cwaJ29wg2q81Cr0kE06
     color: Argent
     images:
@@ -27,13 +27,13 @@ variants:
       - image: /images/1760487363420.jpg
       - image: /images/VINCENT ARNOULD 248-1.jpg
   - title: Canon de fusil
-    price: Disponible en 2026
+    price: "290 euros "
     payment_link: https://buy.stripe.com/cNi3cwaJ29wg2q81Cr0kE06
     color: Noir
     images:
-      - image: /images/VINCENT ARNOULD 53.jpg
-      - image: /images/bague_athena_22092025-2.jpeg
-      - image: /images/bague_athena_3.jpeg
-      - image: /images/1760487363420.jpg
-      - image: /images/VINCENT ARNOULD 248-1.jpg
+      - image: /images/file_000000008e0c72438ab6fb3423f562f1.png
+      - image: /images/file_00000000447871f48682bb9ba834ce4d.png
+      - image: /images/file_00000000825471f4ac0503914427d2a4.png
+      - {}
+      - {}
 ---
