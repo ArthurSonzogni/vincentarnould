@@ -19,7 +19,7 @@ variants:
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 202.jpg
       - image: /images/vincent_7.jpeg
       - image: /images/vincent_2.jpeg
-  - title: Argent poli
+  - title: "Argent brossé "
     price: Disponible en 2026
     payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05
     color: silver
@@ -34,9 +34,9 @@ variants:
     payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05
     color: black
     images:
-      - image: /images/VINCENT ARNOULD 64-1.jpg
-      - image: /images/VINCENT ARNOULD 61.jpg
-      - image: /images/VINCENT ARNOULD 57.jpg
-      - image: /images/VINCENT ARNOULD 248-1.jpg
-      - image: /images/IMG-20250804-WA0008.jpg
+      - image: /images/file_00000000239c71f4a9ba58b7d1641dd0.png
+      - image: /images/file_000000004aa071f4957430332e63e7b3.png
+      - image: /images/file_0000000080dc71f4b2d81536e76c1040.png
+      - {}
+      - {}
 ---
