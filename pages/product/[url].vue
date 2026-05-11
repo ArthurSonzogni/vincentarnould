@@ -188,7 +188,7 @@ try {
   console.error('Invalid variant query parameter:', e);
 }
 
-const variantsLength = product?.variants?.length || 1;
+const variantsLength = product?.meta?.variants?.length || 1;
 variant.value = Math.min(
   Math.max(variant.value, 0),
   variantsLength - 1
@@ -208,7 +208,7 @@ useSeoMeta({
   description: product?.description,
   ogTitle: `${product?.title} | Vincent Arnould`,
   ogDescription: product?.description,
-  ogImage: () => product?.variants?.[variant.value]?.images?.[0]?.image || '',
+  ogImage: () => product?.meta?.variants?.[variant.value]?.images?.[0]?.image || '',
   twitterCard: 'summary_large_image',
 });
 </script>

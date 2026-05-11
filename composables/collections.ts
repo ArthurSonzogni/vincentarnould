@@ -1,22 +1,24 @@
 export interface Product {
   title: string;
   description: string;
+  path: string;
   meta: {
     url: string;
     collection: string;
+    variants?: Array<{
+      title: string;
+      price?: string;
+      payment_link?: string;
+      color?: string;
+      images?: Array<{ image: string }>;
+    }>;
   };
-  variants?: Array<{
-    title: string;
-    price?: string;
-    payment_link?: string;
-    color?: string;
-    images?: Array<{ image: string }>;
-  }>;
 }
 
 export interface Collection {
   title: string;
   description: string;
+  path: string;
   meta: {
     url: string;
   };
@@ -46,6 +48,7 @@ export async function GetCollections() {
         collections["autre"] = {
           title: "Autre",
           description: "Autre",
+          path: "/collection/autre",
           meta: { url: "autre" },
           products: []
         };

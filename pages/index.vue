@@ -44,7 +44,7 @@ const featuredProducts = Object.values(collections)
           :src="`https://www.youtube.com/embed/${meta.hero.video_id}?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=${meta.hero.video_id}&controls=0&showinfo=0&rel=0`" 
           title="Vincent Arnould Lapidaire" 
           frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen
         ></iframe>
       </div>

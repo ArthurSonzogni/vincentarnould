@@ -24,11 +24,11 @@
       <div v-for="product in products" class="products">
            <NuxtLink :to="product.path"> 
            <img class="miniature mx-auto"
-                v-if="product.meta.variants[0].images[0]"
+                v-if="product.meta?.variants?.[0]?.images?.[0]"
                 :src="product.meta.variants[0].images[0].image"
                 />
            <h2>{{ product.title }}</h2>
-           <p class="price">{{ product.meta.price }}</p>
+           <p class="price">{{ product.meta?.variants?.[0]?.price || 'Sur demande' }}</p>
            </NuxtLink>
       </div>
     </div>
