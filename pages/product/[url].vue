@@ -2,10 +2,13 @@
   <div>
     <div class="main-container">
       <div class="images">
-        <img class="image"
+        <NuxtImg class="image"
              v-for="(image, index) in product?.meta?.variants?.[variant]?.images"
              :key="index"
              :src="image.image"
+             :alt="`${product.title} - ${product?.meta?.variants?.[variant]?.title}`"
+             loading="lazy"
+             format="webp"
              />
       </div>
 
@@ -13,25 +16,27 @@
         <div class="details-content">
           <div class="small_screen">
             <div>
-              <span class="title mr-6">
+              <span class="title mr-6 text-xl">
                 {{ product.title }}
               </span>
-              <span class="price">{{ product?.meta?.variants?.[variant]?.price }}</span>
+              <span class="price font-medium">{{ product?.meta?.variants?.[variant]?.price || 'Sur demande' }}</span>
             </div>
+            
             <div v-if="product?.meta?.variants?.length > 1" class="variant-selector mt-4">
-              <span class="text-xs text-gray-400 uppercase tracking-widest mb-1 block">Variante</span>
-              <select
-                v-model="variant"
-                class="w-full bg-transparent border-b border-gray-300 py-2 text-lg focus:outline-none focus:border-yellow-600 transition-colors cursor-pointer appearance-none"
-                >
-                <option
+              <span class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 block">Finitions</span>
+              <div class="flex flex-wrap gap-2">
+                <button
                   v-for="(v, index) in product?.meta?.variants"
                   :key="index"
-                  :value="index"
-                  >
+                  @click="variant = index"
+                  :class="[
+                    'px-4 py-2 text-sm border transition-all duration-300',
+                    variant === index ? 'border-black bg-black text-white' : 'border-gray-200 text-gray-600 hover:border-gray-400'
+                  ]"
+                >
                   {{ v.title }}
-                </option>
-              </select>
+                </button>
+              </div>
             </div>
 
             <UButton
@@ -44,6 +49,10 @@
               >
               Commander
             </UButton>
+            <div v-else class="mt-6 p-4 border border-gray-100 bg-gray-50 text-center text-sm text-gray-500 italic">
+              Cette pièce est disponible sur demande. Contactez-nous pour plus d'informations.
+            </div>
+
             <div v-if="product?.meta?.variants?.[variant]?.payment_link" class="klarna-advertisement text-center">
               Payez en 2x sans frais avec Klarna
             </div>
@@ -56,32 +65,32 @@
           </div>
 
           <div class="large_screen">
-            <h1 class="title font-title mr-6">
+            <h1 class="title font-title text-3xl mb-2">
               {{ product.title }} 
-              <span v-if="product?.meta?.variants?.length > 1">
-                / {{ product?.meta?.variants?.[variant]?.title }}
-              </span>
             </h1>
-            <span class="price">{{ product?.meta?.variants?.[variant]?.price }}</span>
-            <hr />
-            <p>{{ product.description }}</p>
-            <hr />
+            <div class="text-lg text-gray-600 mb-6">
+               {{ product?.meta?.variants?.[variant]?.title }}
+            </div>
+            <span class="price text-2xl">{{ product?.meta?.variants?.[variant]?.price || 'Sur demande' }}</span>
+            <hr class="my-8" />
+            <p class="text-gray-700 leading-relaxed">{{ product.description }}</p>
+            <hr class="my-8" />
 
             <div v-if="product?.meta?.variants?.length > 1" class="variant-selector mt-8">
-              <span class="text-xs text-gray-400 uppercase tracking-widest mb-1 block">Variante</span>
-              <select
-                v-model="variant"
-                class="w-full bg-transparent border-b border-gray-300 py-2 text-lg focus:outline-none focus:border-yellow-600 transition-colors cursor-pointer appearance-none"
-                >
-                <option
+              <span class="text-xs text-gray-400 uppercase tracking-widest mb-3 block">Finitions disponibles</span>
+              <div class="flex flex-wrap gap-3">
+                <button
                   v-for="(v, index) in product?.meta?.variants"
                   :key="index"
-                  :value="index"
-                  >
+                  @click="variant = index"
+                  :class="[
+                    'px-6 py-3 border transition-all duration-300 tracking-wide',
+                    variant === index ? 'border-black bg-black text-white' : 'border-gray-200 text-gray-600 hover:border-gray-400'
+                  ]"
+                >
                   {{ v.title }}
-                </option>
-              </select>
-
+                </button>
+              </div>
             </div>
 
             <UButton
@@ -95,13 +104,22 @@
               >
               Commander
             </UButton>
+            <div v-else class="mt-8 p-6 border border-gray-100 bg-gray-50 text-center text-gray-500 italic">
+              Cette pièce d'exception est disponible sur demande. <br/>
+              <a href="mailto:vinc388@hotmail.fr" class="underline hover:text-black transition-colors">Contactez Vincent Arnould</a> pour personnaliser votre commande.
+            </div>
+
             <div v-if="product?.meta?.variants?.[variant]?.payment_link" class="klarna-advertisement">
               Payez en 2x sans frais avec Klarna
             </div>
-            <div class="reassurance mt-6 text-sm text-gray-600 flex flex-col gap-2">
+            <div class="reassurance mt-8 text-sm text-gray-600 flex flex-col gap-2">
               <div class="flex items-center gap-2">
                 <UIcon name="i-lucide-hammer" class="text-yellow-600 size-4" />
-                <span>Fait main en France</span>
+                <span>Artisanat d'excellence - Fait main en France</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <UIcon name="i-lucide-shield-check" class="text-yellow-600 size-4" />
+                <span>Paiement sécurisé</span>
               </div>
             </div>
           </div>
@@ -109,40 +127,44 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container max-w-4xl">
       <ContentRenderer
-        class="markdown p-5"
+        class="markdown p-8 lg:p-12 text-lg leading-loose"
         :value="product"
         >
       </ContentRenderer>
     </div>
 
-    <hr/>
+    <hr class="border-gray-100" />
 
     <template v-for="collection in Object.values(collections)">
-      <div v-if="collection.products.length > 0" class="container mt-16">
-        <NuxtLink :to="collection.path" class="block text-center mb-8 hover:opacity-70 transition-opacity">
-          <h2 class="text-xs tracking-[0.2em] text-gray-400 uppercase mb-2">Découvrir</h2>
-          <h1 class="text-3xl font-title">{{ collection.title }}</h1>
-        </NuxtLink>
+      <div v-if="collection.products.length > 0 && collection.meta.url !== product.meta.collection" class="container mt-24 mb-24">
+        <div class="text-center mb-12">
+          <h2 class="text-xs tracking-[0.3em] text-gray-400 uppercase mb-3">Découvrir aussi</h2>
+          <h1 class="text-4xl font-title">{{ collection.title }}</h1>
+        </div>
 
         <div class="other-products-list">
           <NuxtLink 
-            v-for="(product, index) in collection.products"
+            v-for="(p, index) in collection.products"
             :key="index"
-            :to="product.path"
-            class="other-product"
+            :to="p.meta.url === product.meta.url ? null : `/product/${p.meta.url}`"
+            :class="['other-product group', p.meta.url === product.meta.url ? 'opacity-50 cursor-default' : '']"
           >
-            <div class="image-wrapper">
-              <img class="miniature"
-                   v-if="product?.meta?.variants?.[0]?.images?.[0]"
-                   :src="product?.meta?.variants?.[0]?.images?.[0]?.image"
-                   :alt="product.title"
+            <div class="image-wrapper aspect-square bg-gray-50 overflow-hidden">
+              <NuxtImg class="miniature w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                   v-if="p?.variants?.[0]?.images?.[0]"
+                   :src="p?.variants?.[0]?.images?.[0]?.image"
+                   :alt="p.title"
+                   loading="lazy"
+                   format="webp"
+                   width="400"
+                   height="400"
               />
             </div>
-            <div class="product-info mt-4 text-center">
-              <h3 class="text-lg font-semibold">{{ product.title }}</h3>
-              <p class="text-sm text-gray-500 mt-1">{{ product?.meta?.variants?.[0]?.price }}</p>
+            <div class="product-info mt-6 text-center">
+              <h3 class="text-xl font-title mb-2 group-hover:text-yellow-700 transition-colors">{{ p.title }}</h3>
+              <p class="text-sm tracking-widest text-gray-400 uppercase">{{ p?.variants?.[0]?.price || 'Sur demande' }}</p>
             </div>
           </NuxtLink>
         </div>
