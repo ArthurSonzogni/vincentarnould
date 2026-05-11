@@ -3,10 +3,10 @@
     <div class="main-container">
       <div class="images">
         <img class="image"
-             v-for="(image, index) in product?.variants?.[variant]?.images"
+             v-for="(image, index) in product?.meta?.variants?.[variant]?.images"
              :key="index"
              :src="image.image"
-             :alt="`${product.title} - ${product?.variants?.[variant]?.title}`"
+             :alt="`${product.title} - ${product?.meta?.variants?.[variant]?.title}`"
              />
       </div>
 
@@ -17,14 +17,14 @@
               <span class="title mr-6 text-xl">
                 {{ product.title }}
               </span>
-              <span class="price font-medium">{{ product?.variants?.[variant]?.price || 'Sur demande' }}</span>
+              <span class="price font-medium">{{ product?.meta?.variants?.[variant]?.price || 'Sur demande' }}</span>
             </div>
             
-            <div v-if="product?.variants?.length > 1" class="variant-selector mt-4">
+            <div v-if="product?.meta?.variants?.length > 1" class="variant-selector mt-4">
               <span class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 block">Finitions</span>
               <div class="flex flex-wrap gap-2">
                 <button
-                  v-for="(v, index) in product?.variants"
+                  v-for="(v, index) in product?.meta?.variants"
                   :key="index"
                   @click="variant = index"
                   :class="[
@@ -38,8 +38,8 @@
             </div>
 
             <UButton
-              v-if="product?.variants?.[variant]?.payment_link"
-              :href="product?.variants?.[variant]?.payment_link"
+              v-if="product?.meta?.variants?.[variant]?.payment_link"
+              :href="product?.meta?.variants?.[variant]?.payment_link"
               icon="i-lucide-shopping-bag"
               color="black"
               variant="solid"
@@ -51,7 +51,7 @@
               Cette pièce est disponible sur demande. Contactez-nous pour plus d'informations.
             </div>
 
-            <div v-if="product?.variants?.[variant]?.payment_link" class="klarna-advertisement text-center">
+            <div v-if="product?.meta?.variants?.[variant]?.payment_link" class="klarna-advertisement text-center">
               Payez en 2x sans frais avec Klarna
             </div>
             <div class="reassurance text-center mt-6 text-sm text-gray-600 flex flex-col gap-2">
@@ -67,18 +67,18 @@
               {{ product.title }} 
             </h1>
             <div class="text-lg text-gray-600 mb-6">
-               {{ product?.variants?.[variant]?.title }}
+               {{ product?.meta?.variants?.[variant]?.title }}
             </div>
-            <span class="price text-2xl">{{ product?.variants?.[variant]?.price || 'Sur demande' }}</span>
+            <span class="price text-2xl">{{ product?.meta?.variants?.[variant]?.price || 'Sur demande' }}</span>
             <hr class="my-8" />
             <p class="text-gray-700 leading-relaxed">{{ product.description }}</p>
             <hr class="my-8" />
 
-            <div v-if="product?.variants?.length > 1" class="variant-selector mt-8">
+            <div v-if="product?.meta?.variants?.length > 1" class="variant-selector mt-8">
               <span class="text-xs text-gray-400 uppercase tracking-widest mb-3 block">Finitions disponibles</span>
               <div class="flex flex-wrap gap-3">
                 <button
-                  v-for="(v, index) in product?.variants"
+                  v-for="(v, index) in product?.meta?.variants"
                   :key="index"
                   @click="variant = index"
                   :class="[
@@ -92,8 +92,8 @@
             </div>
 
             <UButton
-              v-if="product?.variants?.[variant]?.payment_link"
-              :href="product?.variants?.[variant]?.payment_link"
+              v-if="product?.meta?.variants?.[variant]?.payment_link"
+              :href="product?.meta?.variants?.[variant]?.payment_link"
               color="black"
               variant="solid"
               size="xl"
@@ -107,7 +107,7 @@
               <a href="mailto:vinc388@hotmail.fr" class="underline hover:text-black transition-colors">Contactez Vincent Arnould</a> pour personnaliser votre commande.
             </div>
 
-            <div v-if="product?.variants?.[variant]?.payment_link" class="klarna-advertisement">
+            <div v-if="product?.meta?.variants?.[variant]?.payment_link" class="klarna-advertisement">
               Payez en 2x sans frais avec Klarna
             </div>
             <div class="reassurance mt-8 text-sm text-gray-600 flex flex-col gap-2">
@@ -137,7 +137,7 @@
     <hr class="border-gray-100" />
 
     <template v-for="collection in Object.values(collections)">
-      <div v-if="collection.products.length > 0 && collection.url !== product.collection" class="container mt-24 mb-24">
+      <div v-if="collection.products.length > 0 && collection.meta.url !== product.meta.collection" class="container mt-24 mb-24">
         <div class="text-center mb-12">
           <h2 class="text-xs tracking-[0.3em] text-gray-400 uppercase mb-3">Découvrir aussi</h2>
           <h1 class="text-4xl font-title">{{ collection.title }}</h1>
@@ -147,19 +147,19 @@
           <NuxtLink 
             v-for="(p, index) in collection.products"
             :key="index"
-            :to="p.url === product.url ? null : `/product/${p.url}`"
-            :class="['other-product group', p.url === product.url ? 'opacity-50 cursor-default' : '']"
+            :to="p.meta.url === product.meta.url ? null : `/product/${p.meta.url}`"
+            :class="['other-product group', p.meta.url === product.meta.url ? 'opacity-50 cursor-default' : '']"
           >
             <div class="image-wrapper aspect-square bg-gray-50 overflow-hidden">
               <img class="miniature w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                   v-if="p?.variants?.[0]?.images?.[0]"
-                   :src="p?.variants?.[0]?.images?.[0]?.image"
+                   v-if="p?.meta?.variants?.[0]?.images?.[0]"
+                   :src="p?.meta?.variants?.[0]?.images?.[0]?.image"
                    :alt="p.title"
               />
             </div>
             <div class="product-info mt-6 text-center">
               <h3 class="text-xl font-title mb-2 group-hover:text-yellow-700 transition-colors">{{ p.title }}</h3>
-              <p class="text-sm tracking-widest text-gray-400 uppercase">{{ p?.variants?.[0]?.price || 'Sur demande' }}</p>
+              <p class="text-sm tracking-widest text-gray-400 uppercase">{{ p?.meta?.variants?.[0]?.price || 'Sur demande' }}</p>
             </div>
           </NuxtLink>
         </div>
@@ -188,7 +188,7 @@ try {
   console.error('Invalid variant query parameter:', e);
 }
 
-const variantsLength = product?.variants?.length || product?.meta?.variants?.length || 1;
+const variantsLength = product?.meta?.variants?.length || 1;
 variant.value = Math.min(
   Math.max(variant.value, 0),
   variantsLength - 1
@@ -208,7 +208,7 @@ useSeoMeta({
   description: product?.description,
   ogTitle: `${product?.title} | Vincent Arnould`,
   ogDescription: product?.description,
-  ogImage: () => (product?.variants?.[variant.value]?.images?.[0]?.image || product?.meta?.variants?.[variant.value]?.images?.[0]?.image || ''),
+  ogImage: () => product?.meta?.variants?.[variant.value]?.images?.[0]?.image || '',
   twitterCard: 'summary_large_image',
 });
 </script>
