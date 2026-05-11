@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/ui',
     '@nuxt/fonts',
+    '@nuxt/image',
   ],
   css: ['assets/css/main.css'],
   content: {

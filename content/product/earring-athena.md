@@ -32,7 +32,6 @@ variants:
     payment_link: https://buy.stripe.com/5kQ8wQ2cw7o84yg5SH0kE04
     color: Argent
     images:
-      - {}
   - title: Canon de fusil
     price: "440 euros "
     payment_link: https://buy.stripe.com/5kQ8wQ2cw7o84yg5SH0kE04
@@ -41,6 +40,4 @@ variants:
       - image: /images/file_0000000071b4720aae2dfa3c7c418950.png
       - image: /images/file_00000000376c71f49225f737042599f8.png
       - image: /images/file_000000002658720a9a0a7369b820ad26.png
-      - {}
-      - {}
 ---
