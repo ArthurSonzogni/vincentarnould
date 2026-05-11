@@ -14,7 +14,11 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/fonts',
     '@nuxt/image',
+    '@nuxtjs/seo',
   ],
+  ogImage: {
+    enabled: false,
+  },
   css: ['assets/css/main.css'],
   content: {
     build: {
