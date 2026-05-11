@@ -539,5 +539,3 @@ const featuredProducts = Object.values(collections)
   margin-bottom: 3rem;
 }
 </style>
-}
-</style>
