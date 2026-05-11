@@ -8,13 +8,13 @@ description: Ces boucles d'oreilles haute joaillerie uniques sont une création
  sélectionnée pour sa couleur et sa brillance, créant un bijou d'exception qui
  ne manquera pas de faire tourner les têtes.
 variants:
- - title: "BO haute joaillerie "
-  price: Sur demande
-  payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
-  color: gold
-  images:
-   - image: /images/VINCENT ARNOULD 76.jpg
-   - image: /images/VINCENT ARNOULD 73.jpg
-   - image: /images/20230820_114447.jpg
-   - image: /images/file_00000000319871f4832dd836ac17b37e.png
+  - title: "BO haute joaillerie "
+    price: Sur demande
+    payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
+    color: gold
+    images:
+      - image: /images/VINCENT ARNOULD 76.jpg
+      - image: /images/VINCENT ARNOULD 73.jpg
+      - image: /images/20230820_114447.jpg
+      - image: /images/file_00000000319871f4832dd836ac17b37e.png
 ---

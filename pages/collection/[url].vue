@@ -1,12 +1,12 @@
 <template>
   <div>
   <img class="cover-image"
-       v-if="collection.meta.cover_image"
-       :src="collection.meta.cover_image"
+       v-if="collection.cover_image"
+       :src="collection.cover_image"
        />
 
   <div class="max-w-6xl mx-auto p-6 mt-20">
-    <!--Display the product.meta.cover_image-->
+    <!--Display the product.cover_image-->
 
     <h1 class="title font-title">
       {{ collection.title }}
@@ -22,13 +22,13 @@
   <div class="max-w-6xl mx-auto p-6 mt-20">
     <div class="products-list">
       <div v-for="product in products" class="products">
-           <NuxtLink :to="product.path"> 
+           <NuxtLink :to="`/product/${product.url}`"> 
            <img class="miniature mx-auto"
-                v-if="product.meta.variants[0].images[0]"
-                :src="product.meta.variants[0].images[0].image"
+                v-if="product.variants?.[0]?.images?.[0]"
+                :src="product.variants[0].images[0].image"
                 />
            <h2>{{ product.title }}</h2>
-           <p class="price">{{ product.meta.variants[0].price || 'Sur demande' }}</p>
+           <p class="price">{{ product.variants?.[0]?.price || 'Sur demande' }}</p>
            </NuxtLink>
       </div>
     </div>
@@ -36,12 +36,12 @@
   </div>
 
   <div class="lg:max-w-6xl lg:mx-auto lg:p-6">
-    <!--Iterate over the models images: collection.meta.images into a nuxt/ui
+    <!--Iterate over the models images: collection.images into a nuxt/ui
       UCarousel component.-->
       <UCarousel
         v-slot="{ item }"
         orientation="horizontal"
-        :items="collection.meta.images"
+        :items="collection.images"
         class="carousel mx-auto"
         :autoplay="{ delay: 4000 }"
         :ui="{ item: 'lg:basis-1/3 md:basis-1/2 sd:basis-full' }"

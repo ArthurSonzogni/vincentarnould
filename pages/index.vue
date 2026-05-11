@@ -101,20 +101,20 @@ const featuredProducts = Object.values(collections)
         <div class="product-grid">
           <NuxtLink 
             v-for="product in featuredProducts" 
-            :key="product.path" 
-            :to="product.path"
+            :key="product.url" 
+            :to="`/product/${product.url}`"
             class="product-card"
           >
             <div class="image-wrapper">
               <img 
-                v-if="product?.meta?.variants?.[0]?.images?.[0]"
-                :src="product.meta.variants[0].images[0].image" 
+                v-if="product?.variants?.[0]?.images?.[0]"
+                :src="product.variants[0].images[0].image" 
                 :alt="product.title" 
               />
             </div>
             <div class="product-info">
               <h3 class="product-name">{{ product.title }}</h3>
-              <p class="product-price">{{ product?.meta?.variants?.[0]?.price || '' }}</p>
+              <p class="product-price">{{ product?.variants?.[0]?.price || '' }}</p>
             </div>
           </NuxtLink>
         </div>

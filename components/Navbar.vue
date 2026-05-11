@@ -9,7 +9,7 @@ const { data: home } = await useAsyncData(() =>
 
 const collections = await GetCollections();
 
-const logo = computed(() => home.value?.meta?.logo);
+const logo = computed(() => home.value?.logo);
 
 </script>
 
@@ -20,6 +20,7 @@ const logo = computed(() => home.value?.meta?.logo);
   >
     <!-- Un bouton hamburger chic flottant (Trigger) -->
     <button
+      @click="open = true"
       class="fixed top-6 left-6 z-50 bg-black/20 hover:bg-black/40 backdrop-blur-md text-white border border-white/30 rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300"
     >
       <UIcon name="i-lucide-menu" class="size-6" />
@@ -42,13 +43,13 @@ const logo = computed(() => home.value?.meta?.logo);
             <div class="w-8 h-px bg-yellow-600/50 my-2"></div>
 
             <div v-for="(collection, index) in Object.values(collections)" :key="index" class="collection-group">
-              <NuxtLink :to="collection.path" class="font-title text-lg tracking-widest text-gray-900 uppercase mb-4 block hover:text-yellow-600 transition-colors" @click="open = false">
+              <NuxtLink :to="`/collection/${collection.url}`" class="font-title text-lg tracking-widest text-gray-900 uppercase mb-4 block hover:text-yellow-600 transition-colors" @click="open = false">
                 {{ collection.title }}
               </NuxtLink>
               
               <ul class="flex flex-col gap-3 pl-4 border-l border-gray-100">
                 <li v-for="(product, idx) in collection.products" :key="idx">
-                  <NuxtLink :to="product.path" class="text-gray-500 hover:text-gray-900 text-sm tracking-wide transition-colors" @click="open = false">
+                  <NuxtLink :to="`/product/${product.url}`" class="text-gray-500 hover:text-gray-900 text-sm tracking-wide transition-colors" @click="open = false">
                     {{ product.title }}
                   </NuxtLink>
                 </li>

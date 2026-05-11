@@ -2,7 +2,7 @@ export async function GetCollections() {
   const bySlug = (array) => {
     const result = {};
     for (const item of array) {
-      result[item.meta.url] = item;
+      result[item.url] = item;
     }
     return result;
   }
@@ -14,7 +14,7 @@ export async function GetCollections() {
   }
   for(const p in products) {
     const product = products[p];
-    const collection = product.meta.collection;
+    const collection = product.collection;
     if (!collections[collection]) {
       console.warn('Product without collection', products[p]);
       collections["Autre"] ||= {
