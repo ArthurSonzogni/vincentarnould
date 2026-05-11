@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/image',
     '@nuxtjs/seo',
+    '@nuxt/eslint',
   ],
   ogImage: {
     enabled: false,
