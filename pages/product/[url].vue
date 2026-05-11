@@ -2,13 +2,11 @@
   <div>
     <div class="main-container">
       <div class="images">
-        <NuxtImg class="image"
+        <img class="image"
              v-for="(image, index) in product?.meta?.variants?.[variant]?.images"
              :key="index"
              :src="image.image"
              :alt="`${product.title} - ${product?.meta?.variants?.[variant]?.title}`"
-             loading="lazy"
-             format="webp"
              />
       </div>
 
@@ -129,6 +127,7 @@
 
     <div class="container max-w-4xl">
       <ContentRenderer
+        v-if="product"
         class="markdown p-8 lg:p-12 text-lg leading-loose"
         :value="product"
         >
@@ -152,19 +151,15 @@
             :class="['other-product group', p.meta.url === product.meta.url ? 'opacity-50 cursor-default' : '']"
           >
             <div class="image-wrapper aspect-square bg-gray-50 overflow-hidden">
-              <NuxtImg class="miniature w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                   v-if="p?.variants?.[0]?.images?.[0]"
-                   :src="p?.variants?.[0]?.images?.[0]?.image"
+              <img class="miniature w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                   v-if="p?.meta?.variants?.[0]?.images?.[0]"
+                   :src="p?.meta?.variants?.[0]?.images?.[0]?.image"
                    :alt="p.title"
-                   loading="lazy"
-                   format="webp"
-                   width="400"
-                   height="400"
               />
             </div>
             <div class="product-info mt-6 text-center">
               <h3 class="text-xl font-title mb-2 group-hover:text-yellow-700 transition-colors">{{ p.title }}</h3>
-              <p class="text-sm tracking-widest text-gray-400 uppercase">{{ p?.variants?.[0]?.price || 'Sur demande' }}</p>
+              <p class="text-sm tracking-widest text-gray-400 uppercase">{{ p?.meta?.variants?.[0]?.price || 'Sur demande' }}</p>
             </div>
           </NuxtLink>
         </div>
@@ -180,8 +175,6 @@ import { GetCollections } from '/composables/collections';
 const route = useRoute();
 const router = useRouter();
 
-const config = useRuntimeConfig();
-
 const url = useRoute().params.url;
 const product = await queryCollection('product').path(`/product/${url}`).first();
 const collections = await GetCollections();
@@ -194,26 +187,28 @@ try {
 } catch (e) {
   console.error('Invalid variant query parameter:', e);
 }
+
+const variantsLength = product?.variants?.length || 1;
 variant.value = Math.min(
   Math.max(variant.value, 0),
-  (product?.meta?.variants?.length || 1) - 1
+  variantsLength - 1
 );
+
 watch([variant], () => {
   router.replace({
     query: {
       variant: variant.value.toString(),
     },
   });
-  // Reset scroll position to the top of the page when variant changes
   window.scrollTo(0, 0);
 });
 
 useSeoMeta({
-  title: `${product.title} | Vincent Arnould`,
-  description: product.description,
-  ogTitle: `${product.title} | Vincent Arnould`,
-  ogDescription: product.description,
-  ogImage: () => product?.meta?.variants?.[variant.value]?.images?.[0]?.image || '',
+  title: `${product?.title} | Vincent Arnould`,
+  description: product?.description,
+  ogTitle: `${product?.title} | Vincent Arnould`,
+  ogDescription: product?.description,
+  ogImage: () => product?.variants?.[variant.value]?.images?.[0]?.image || '',
   twitterCard: 'summary_large_image',
 });
 </script>
