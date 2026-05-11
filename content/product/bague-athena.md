@@ -29,6 +29,12 @@ variants:
       - image: /images/VINCENT ARNOULD 57.jpg
       - image: /images/VINCENT ARNOULD 248-1.jpg
       - image: /images/IMG-20250804-WA0008.jpg
+  - title: Argent poli
+    price: "370 euros "
+    payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05
+    color: silver
+    images:
+      - {}
   - title: Canon de fusil
     price: "370 euros "
     payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05

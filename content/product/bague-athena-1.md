@@ -26,6 +26,12 @@ variants:
       - image: /images/bague_athena_3.jpeg
       - image: /images/1760487363420.jpg
       - image: /images/VINCENT ARNOULD 248-1.jpg
+  - title: "Argent brossé "
+    price: 290 euros
+    payment_link: https://buy.stripe.com/cNi3cwaJ29wg2q81Cr0kE06
+    color: Argent
+    images:
+      - {}
   - title: Canon de fusil
     price: "290 euros "
     payment_link: https://buy.stripe.com/cNi3cwaJ29wg2q81Cr0kE06

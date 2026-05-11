@@ -29,6 +29,12 @@ variants:
       - image: /images/VINCENT ARNOULD 16.jpg
       - image: /images/VINCENT ARNOULD 226.jpg
       - image: /images/IMG-20250804-WA0012.jpg
+  - title: Argent poli
+    price: Sur demande
+    payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
+    color: argent
+    images:
+      - {}
   - title: Canon de fusil
     price: Sur demande
     payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ

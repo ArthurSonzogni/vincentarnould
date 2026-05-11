@@ -25,6 +25,11 @@ variants:
       - image: /images/IMG-20250804-WA0009.jpg
       - image: /images/VINCENT ARNOULD 239-1.jpg
       - image: /images/VINCENT ARNOULD 243.jpg
+  - title: Argent poli
+    price: "Sur demande "
+    color: Argent
+    images:
+      - {}
   - title: Canon de fusil
     price: "Sur demande "
     color: Canon de fusil
