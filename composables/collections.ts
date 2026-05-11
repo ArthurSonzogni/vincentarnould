@@ -2,26 +2,22 @@ export interface Product {
   title: string;
   description: string;
   path: string;
-  meta: {
-    url: string;
-    collection: string;
-    variants?: Array<{
-      title: string;
-      price?: string;
-      payment_link?: string;
-      color?: string;
-      images?: Array<{ image: string }>;
-    }>;
-  };
+  url: string;
+  collection: string;
+  variants?: Array<{
+    title: string;
+    price?: string;
+    payment_link?: string;
+    color?: string;
+    images?: Array<{ image: string }>;
+  }>;
 }
 
 export interface Collection {
   title: string;
   description: string;
   path: string;
-  meta: {
-    url: string;
-  };
+  url: string;
   products: Product[];
 }
 
@@ -32,32 +28,37 @@ export async function GetCollections() {
   const collections: Record<string, Collection> = {};
   
   for (const c of collectionsData) {
-    collections[c.meta.url] = {
-      ...c,
-      products: []
-    } as unknown as Collection;
+    const data = c as any;
+    const url = data.url || data.meta?.url; // Fallback au cas où
+    if (url) {
+      collections[url] = {
+        ...data,
+        url: url,
+        products: []
+      } as Collection;
+    }
   }
 
   for (const p of products) {
-    const product = p as unknown as Product;
-    const collectionUrl = product.meta.collection;
+    const product = p as any;
+    const collectionUrl = product.collection || product.meta?.collection;
 
-    if (!collections[collectionUrl]) {
-      console.warn('Product without collection', p);
+    if (!collectionUrl || !collections[collectionUrl]) {
+      console.warn('Product without collection or invalid collection', p);
       if (!collections["autre"]) {
         collections["autre"] = {
           title: "Autre",
           description: "Autre",
           path: "/collection/autre",
-          meta: { url: "autre" },
+          url: "autre",
           products: []
         };
       }
-      collections["autre"].products.push(product);
+      collections["autre"].products.push({ ...product, url: product.url || product.meta?.url } as Product);
       continue;
     }
 
-    collections[collectionUrl].products.push(product);
+    collections[collectionUrl].products.push({ ...product, url: product.url || product.meta?.url } as Product);
   }
 
   return collections;

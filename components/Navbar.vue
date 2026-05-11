@@ -9,7 +9,7 @@ const { data: home } = await useAsyncData(() =>
 
 const collections = await GetCollections();
 
-const logo = computed(() => home.value?.meta?.logo);
+const logo = computed(() => home.value?.logo);
 
 </script>
 
