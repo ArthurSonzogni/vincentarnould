@@ -2,7 +2,9 @@
 url: athena-bracelet
 collection: athena
 title: Bracelet Athéna
-description: Le bracelet Athéna est un bijou d'une grande finesse qui habille le poignet avec élégance. Sa chaîne délicate et son design épuré en font un accessoire intemporel, parfait pour toutes les occasions.
+description: Le bracelet Athéna est un bijou d'une grande finesse qui habille le
+  poignet avec élégance. Sa chaîne délicate et son design épuré en font un
+  accessoire intemporel, parfait pour toutes les occasions.
 variants:
   - title: Doré
     price: "Sur demande "
@@ -14,7 +16,7 @@ variants:
       - image: /images/file_000000008fa871f495d87f877ade4024.png
   - title: "Argent brossé "
     price: "Sur demande "
-    color: Argent
+    color: "Argent brossé "
     images:
       - image: /images/VINCENT ARNOULD 31-1.jpg
       - image: /images/VINCENT ARNOULD 39-1.jpg
@@ -23,8 +25,11 @@ variants:
       - image: /images/VINCENT ARNOULD 243.jpg
   - title: Argent poli
     price: "Sur demande "
-    color: Argent
+    color: Argent poli
     images:
+      - image: /images/file_0000000073e0724382cbaa8ccd7d1353.png
+      - image: /images/file_000000008d8471f4bb0e9cf2101fccc5.png
+      - image: /images/file_00000000451871f485bdccebd2f0e88c.png
   - title: Canon de fusil
     price: "Sur demande "
     color: Canon de fusil
