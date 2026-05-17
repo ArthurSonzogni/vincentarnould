@@ -3,9 +3,9 @@ url: necklace-athena
 collection: athena
 title: Collier
 description: Mettez en valeur votre décolleté avec ce délicat collier en argent
- sterling. Son design épuré et l'éclat subtil de l'argent en font un bijou
- polyvalent, parfait pour ajouter une touche de sophistication discrète à votre
- style quotidien ou pour compléter une tenue élégante.
+  sterling. Son design épuré et l'éclat subtil de l'argent en font un bijou
+  polyvalent, parfait pour ajouter une touche de sophistication discrète à votre
+  style quotidien ou pour compléter une tenue élégante.
 variants:
   - title: Doré
     price: "Sur demande "
@@ -29,8 +29,11 @@ variants:
   - title: Argent poli
     price: Sur demande
     payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
-    color: argent
+    color: Argent poli
     images:
+      - image: /images/file_00000000941c71f48dfa75aece693a78.png
+      - image: /images/file_00000000111c724690c03cda393d9af2.png
+      - image: /images/file_000000002f887243893560d8b9498362.png
   - title: Canon de fusil
     price: Sur demande
     payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
