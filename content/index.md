@@ -43,7 +43,7 @@ sections:
       reflet de votre attachement et de l'amour éternel que vous lui porté.
     cta_text: Découvrir la collection Canin / Chat
     cta_link: /collection/accessories-for-dogs
-    image: /images/file_00000000d0a0720aa8687d4774b4591c-2.png
+    image: /images/file_00000000ce0471f4a53d0d98d0329771.png
     image_caption: Le savoir-faire au service de nos fidèles compagnons
 how_it_works:
   title: Comment se déroule une création sur-mesure ?
