@@ -3,9 +3,9 @@ url: athena-boucle-oreilles
 collection: athena
 title: Boucles d'Oreilles
 description: Rehaussez votre style avec ces élégantes boucles d'oreilles. Leur
- design raffiné met en valeur une subtile touche de couleur, parfaites pour
- ajouter une note de sophistication à toutes vos tenues. Fabriquées avec des
- matériaux de qualité, elles offrent confort et durabilité.
+  design raffiné met en valeur une subtile touche de couleur, parfaites pour
+  ajouter une note de sophistication à toutes vos tenues. Fabriquées avec des
+  matériaux de qualité, elles offrent confort et durabilité.
 variants:
   - title: Doré
     price: "440 euros "
@@ -20,7 +20,7 @@ variants:
   - title: "Argent brossé "
     price: "440 euros "
     payment_link: https://buy.stripe.com/5kQ8wQ2cw7o84yg5SH0kE04
-    color: Argent
+    color: "Argent brossé "
     images:
       - image: /images/VINCENT ARNOULD 6.jpg
       - image: /images/VINCENT ARNOULD 3.jpg
@@ -30,12 +30,15 @@ variants:
   - title: Argent poli
     price: "440 euros "
     payment_link: https://buy.stripe.com/5kQ8wQ2cw7o84yg5SH0kE04
-    color: Argent
+    color: Argent poli
     images:
+      - image: /images/file_0000000014c87243bce4b2d5dd825d87.png
+      - image: /images/file_00000000d4b87246bf4d6c61011238b5.png
+      - image: /images/file_00000000d7fc7246aacdcc43c9706c9d.png
   - title: Canon de fusil
     price: "440 euros "
     payment_link: https://buy.stripe.com/5kQ8wQ2cw7o84yg5SH0kE04
-    color: Noir
+    color: Canon de fusil
     images:
       - image: /images/file_0000000071b4720aae2dfa3c7c418950.png
       - image: /images/file_00000000376c71f49225f737042599f8.png
