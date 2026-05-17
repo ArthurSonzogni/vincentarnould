@@ -2,7 +2,11 @@
 url: athena-bague-2
 collection: athena
 title: "Bague 2 doigts "
-description: Cette bague en argent massif est un bijou d'exception, alliant élégance et modernité. Son design unique et sa finition soignée en font un accessoire incontournable pour toute occasion. Fabriquée avec des matériaux de haute qualité, elle offre une durabilité exceptionnelle tout en ajoutant une touche de sophistication à votre style.
+description: Cette bague en argent massif est un bijou d'exception, alliant
+  élégance et modernité. Son design unique et sa finition soignée en font un
+  accessoire incontournable pour toute occasion. Fabriquée avec des matériaux de
+  haute qualité, elle offre une durabilité exceptionnelle tout en ajoutant une
+  touche de sophistication à votre style.
 variants:
   - title: Doré
     price: "370 euros "
@@ -17,7 +21,7 @@ variants:
   - title: "Argent brossé "
     price: "370 euros "
     payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05
-    color: silver
+    color: "Argent brossé "
     images:
       - image: /images/VINCENT ARNOULD 64-1.jpg
       - image: /images/VINCENT ARNOULD 61.jpg
@@ -27,8 +31,11 @@ variants:
   - title: Argent poli
     price: "370 euros "
     payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05
-    color: silver
+    color: Argent poli
     images:
+      - image: /images/file_000000008cc471f49d3c032109fdd802.png
+      - image: /images/file_000000002a0472438553899b67a225de.png
+      - image: /images/file_00000000ab8072438c106acac27c6efd.png
   - title: Canon de fusil
     price: "370 euros "
     payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05
