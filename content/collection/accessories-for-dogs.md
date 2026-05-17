@@ -3,7 +3,7 @@ url: accessories-for-dogs
 title: Accessoires pour chiens / chats
 description: Découvrez notre collection d'accessoires pour animaux, alliant
   style et confort pour votre compagnon à quatre pattes.
-cover_image: /images/collections/dogs.jpg
+cover_image: /images/file_000000008c7c7243815eb037b9f0be37.png
 images:
   - image: /images/IMG-20251019-WA0016.jpg
   - image: /images/IMG-20251019-WA0013.jpg
