@@ -39,9 +39,9 @@ sections:
     cta_link: /collection/accessories-for-dogs
     image: /images/file_00000000ce0471f4a53d0d98d0329771.png
     image_caption: Le savoir-faire au service de nos fidèles compagnons
-  - image: /images/IMG_3007.jpg
-  - image: /images/file_000000007fe871f4b6ecc3ca420c2387-1.png
-  - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 195.jpg
+  - {}
+  - {}
+  - {}
 how_it_works:
   title: Comment se déroule une création sur-mesure ?
   steps:
