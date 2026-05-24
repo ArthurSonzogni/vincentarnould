@@ -17,22 +17,16 @@ sections:
       tels que Tiffany, Cartier et Chanel. Totalement autodidacte dans son
       évolution, il se nourrit des défis pour repousser les limites de son
       métier.
-    image: /images/file_000000008d88720abf83bea28fe1346b.png
-    image_caption: Vincent Arnould avec Son Altesse Sérénissime la Princesse
-      Charlène de Monaco et sa fidèle Kita
-  - title: L'Essence du Sur-Mesure
-    paragraph1: Désormais, Vincent déploie cette exigence d'excellence dans
+    image: /images/file_0000000042fc71f490e861eeb7e47cbd-1.png
+  - paragraph1: Désormais, Vincent déploie cette exigence d'excellence dans
       l'univers de la joaillerie et des pièces personnalisées avec un Artisanat
       de qualité haute joaillerie francais.
     paragraph2: Chaque création est le fruit d'une alliance parfaite entre technique
       traditionnelle, précision millimétrée, et une véritable osmose avec les
       désirs du client. Une promesse d'unicité, avec des matériaux nobles, parce
       que chaque personne devrais posséder un bijoux qui lui ressemble.
-    cta_text: "Créer votre bijou, avec votre propre identité "
-    cta_link: /collection/sur_mesure
-    image: /images/vincent_katia_improved.jpeg
-    image_caption: Présentation d'une pièce d'exception dans le cadre prestigieux du
-      Fouquet's à Paris
+    cta_link: "/collection/athena "
+    image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 213.jpg
   - title: L'Élégance pour votre fidèle compagnon
     paragraph1: Parce que nos animaux méritent la même attention que nous, Vincent
       Arnould a imaginé une gamme de créations joaillières dédiées aux chiens /
@@ -45,6 +39,9 @@ sections:
     cta_link: /collection/accessories-for-dogs
     image: /images/file_00000000ce0471f4a53d0d98d0329771.png
     image_caption: Le savoir-faire au service de nos fidèles compagnons
+  - image: /images/IMG_3007.jpg
+  - image: /images/file_000000007fe871f4b6ecc3ca420c2387-1.png
+  - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 195.jpg
 how_it_works:
   title: Comment se déroule une création sur-mesure ?
   steps:
