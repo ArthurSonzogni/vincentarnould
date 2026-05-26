@@ -8,6 +8,12 @@ const { data: home } = await useAsyncData(() =>
 
 const meta = computed(() => home.value?.meta || {});
 
+const activeSections = computed(() => 
+  (meta.value?.sections || []).filter(section => 
+    section && (section.title || section.paragraph1 || section.image || section.images)
+  )
+);
+
 useSeoMeta({
   title: home.value?.title || 'L\'Artisanat d\'Exception | Vincent Arnould',
   description: home.value?.description || 'Découvrez le savoir-faire de Vincent Arnould, lapidaire.',
@@ -27,10 +33,9 @@ onMounted(() => {
 });
 
 const collections = await GetCollections();
-// Flatten products from all collections and take a sample
-const featuredProducts = Object.values(collections)
-  .flatMap(c => (c as any).products)
-  .slice(0, 3);
+
+const athenaProducts = computed(() => collections['athena']?.products || []);
+const dogProducts = computed(() => collections['accessories-for-dogs']?.products || []);
 </script>
 
 <template>
@@ -59,7 +64,7 @@ const featuredProducts = Object.values(collections)
       </div>
     </div>
 
-    <div v-for="(section, index) in meta.sections" :key="index" class="content-section" :class="{ 'reverse bg-gray': index % 2 !== 0 }">
+    <div v-for="(section, index) in activeSections" :key="index" class="content-section" :class="{ 'reverse bg-gray': index % 2 !== 0 }">
       <div class="text-block">
         <h2 class="font-title">{{ section.title }}</h2>
         <div class="divider"></div>
@@ -70,15 +75,32 @@ const featuredProducts = Object.values(collections)
           {{ section.paragraph2 }}
         </p>
         <div v-if="section.cta_text && section.cta_link" class="cta-wrapper">
-          <UButton :to="section.cta_link" color="black" :variant="index === 2 ? 'outline' : 'solid'" size="xl">
+          <UButton :to="section.cta_link" color="black" :variant="section.cta_variant || (index === 2 ? 'outline' : 'solid')" size="xl">
             {{ section.cta_text }}
           </UButton>
         </div>
       </div>
       <div class="image-block">
-        <div class="image-with-caption">
+        <div v-if="section.images && section.images.length > 0" class="carousel-wrapper">
+          <UCarousel
+            v-slot="{ item }"
+            orientation="horizontal"
+            :items="section.images"
+            class="section-carousel mx-auto"
+            :autoplay="{ delay: 4000 }"
+            :ui="{ item: 'basis-full' }"
+            dots
+          >
+            <img
+              :src="typeof item === 'string' ? item : item.image"
+              :alt="section.title"
+              class="carousel-image"
+            />
+          </UCarousel>
+        </div>
+        <div v-else-if="section.image" class="image-with-caption">
           <img :src="section.image" :alt="section.title" />
-          <p class="image-caption">{{ section.image_caption }}</p>
+          <p v-if="section.image_caption" class="image-caption">{{ section.image_caption }}</p>
         </div>
       </div>
     </div>
@@ -97,10 +119,36 @@ const featuredProducts = Object.values(collections)
 
     <div class="products-selection">
       <div class="container-inner">
-        <h2 class="font-title section-title">Sélection de Créations</h2>
+        <h2 class="font-title section-title">La Collection Athéna</h2>
         <div class="product-grid">
           <NuxtLink 
-            v-for="product in featuredProducts" 
+            v-for="product in athenaProducts" 
+            :key="product.url" 
+            :to="`/product/${product.url}`"
+            class="product-card"
+          >
+            <div class="image-wrapper">
+              <img 
+                v-if="product?.variants?.[0]?.images?.[0]"
+                :src="product.variants[0].images[0].image" 
+                :alt="product.title" 
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">{{ product.title }}</h3>
+              <p class="product-price">{{ product?.variants?.[0]?.price || '' }}</p>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-selection bg-gray">
+      <div class="container-inner">
+        <h2 class="font-title section-title">La Collection Canin / Chat</h2>
+        <div class="product-grid">
+          <NuxtLink 
+            v-for="product in dogProducts" 
             :key="product.url" 
             :to="`/product/${product.url}`"
             class="product-card"
@@ -357,6 +405,22 @@ const featuredProducts = Object.values(collections)
   font-style: italic;
   line-height: 1.4;
   text-align: center;
+}
+
+.carousel-wrapper {
+  width: 100%;
+}
+
+.section-carousel {
+  width: 100%;
+}
+
+.carousel-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
 }
 
 .footer-cta {

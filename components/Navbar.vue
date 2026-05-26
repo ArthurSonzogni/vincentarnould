@@ -9,6 +9,19 @@ const { data: home } = await useAsyncData(() =>
 
 const collections = await GetCollections();
 
+const sortedCollections = computed(() => {
+  const list = Object.values(collections);
+  const order = ['athena', 'accessories-for-dogs', 'children', 'sur_mesure'];
+  return list.sort((a, b) => {
+    const indexA = order.indexOf(a.url);
+    const indexB = order.indexOf(b.url);
+    if (indexA === -1 && indexB === -1) return 0;
+    if (indexA === -1) return 1;
+    if (indexB === -1) return -1;
+    return indexA - indexB;
+  });
+});
+
 const logo = computed(() => home.value?.logo);
 
 </script>
@@ -42,7 +55,7 @@ const logo = computed(() => home.value?.logo);
 
             <div class="w-8 h-px bg-yellow-600/50 my-2"></div>
 
-            <div v-for="(collection, index) in Object.values(collections)" :key="index" class="collection-group">
+            <div v-for="(collection, index) in sortedCollections" :key="index" class="collection-group">
               <NuxtLink :to="`/collection/${collection.url}`" class="font-title text-lg tracking-widest text-gray-900 uppercase mb-4 block hover:text-yellow-600 transition-colors" @click="open = false">
                 {{ collection.title }}
               </NuxtLink>
