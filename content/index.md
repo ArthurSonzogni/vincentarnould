@@ -18,29 +18,6 @@ sections:
       évolution, il se nourrit des défis pour repousser les limites de son
       métier.
     image: /images/file_0000000042fc71f490e861eeb7e47cbd-1.png
-  - title: Collection Athéna
-    paragraph1: Désormais, Vincent déploie cette exigence d'excellence dans
-      l'univers de la joaillerie et des pièces personnalisées avec un Artisanat
-      de qualité haute joaillerie français.
-    paragraph2: Chaque création est le fruit d'une alliance parfaite entre technique
-      traditionnelle, précision millimétrée, et une véritable osmose avec les
-      désirs du client. Une promesse d'unicité, avec des matériaux nobles, parce
-      que chaque personne devrait posséder un bijou qui lui ressemble.
-    cta_text: Découvrir la collection Athéna
-    cta_link: "/collection/athena"
-    image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 213.jpg
-  - title: L'Élégance pour votre fidèle compagnon
-    paragraph1: Parce que nos animaux méritent la même attention que nous, Vincent
-      Arnould a imaginé une gamme de créations joaillières dédiées aux chiens /
-      chats
-    paragraph2: Qu'il s'agisse de colliers, laisses, harnais, chaque pièce est
-      façonnée avec les mêmes exigences de qualité et de raffinement que la
-      Haute joaillerie classique. Offrez à votre compagnon un bijou unique,
-      reflet de votre attachement et de l'amour éternel que vous lui portez.
-    cta_text: Découvrir la collection Canin / Chat
-    cta_link: /collection/accessories-for-dogs
-    image: /images/file_00000000ce0471f4a53d0d98d0329771.png
-    image_caption: Le savoir-faire au service de nos fidèles compagnons
 how_it_works:
   title: Comment se déroule une création sur-mesure ?
   steps:
