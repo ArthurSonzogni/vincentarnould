@@ -18,13 +18,12 @@ sections:
       évolution, il se nourrit des défis pour repousser les limites de son
       métier.
     image: /images/file_0000000042fc71f490e861eeb7e47cbd-1.png
-  - title: L'Essence du Sur-MesureL'excellence de la haute joaillerie au service de
-      la création
+  - title: La qualité  haute joaillerie au service de la création
     paragraph1: >-
       Vincent mets son savoir-faire d'exception au cœur de chacune de ses
       créations. Chaque bijou est entièrement conçu et réalisé avec les
       exigences de la haute joaillerie, alliant précision, raffinement et
-      maîtrise des techniques les plus exigeantes artisanal. 
+      maîtrise des techniques les plus exigeantes artisanal Parisienne 🇫🇷 . 
 
       Si ses pièces ne sont pas nécessairement ornées de pierres précieuses,
       elles se distinguent par leur design, leur fabrication et l'attention
