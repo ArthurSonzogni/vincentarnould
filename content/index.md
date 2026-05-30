@@ -18,16 +18,6 @@ sections:
       évolution, il se nourrit des défis pour repousser les limites de son
       métier.
     image: /images/file_0000000042fc71f490e861eeb7e47cbd-1.png
-how_it_works:
-  title: Comment se déroule une création sur-mesure ?
-  steps:
-    - title: 1. L'Échange
-      description: Nous discutons de vos envies, de votre histoire ou de celle de
-        votre animal pour cerner précisément vos goûts.
-    - title: 2. Le Croquis & Les Gemmes
-      description: Vincent vous propose des esquisses et une sélection de pierres
-        précieuses ou fines adaptées à votre idée, ainsi que différents cuir de
-        qualité pour les bijoux  animaliers.
 footer_cta:
   title: Discutons de votre projet
   subtitle: L'opportunité de posséder un bijou entièrement conçu pour vous ou

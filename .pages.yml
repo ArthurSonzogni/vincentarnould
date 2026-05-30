@@ -32,18 +32,7 @@ content:
           - {name: "cta_link", label: "Lien du bouton (optionnel)", type: "string"}
           - {name: "image", label: "Image", type: "image"}
           - {name: "image_caption", label: "Légende de l'image", type: "string"}
-      - name: "how_it_works"
-        label: "Comment ça marche ?"
-        type: "object"
-        fields:
-          - {name: "title", label: "Titre de la section", type: "string"}
-          - name: "steps"
-            label: "Étapes"
-            type: "object"
-            list: true
-            fields:
-              - {name: "title", label: "Titre de l'étape", type: "string"}
-              - {name: "description", label: "Description", type: "text"}
+
       - name: "footer_cta"
         label: "Pied de page : Appel à l'action"
         type: "object"

@@ -105,17 +105,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
       </div>
     </div>
 
-    <div v-if="meta.how_it_works" class="how-it-works-section bg-gray">
-      <div class="container-inner">
-        <h2 class="font-title section-title">{{ meta.how_it_works.title }}</h2>
-        <div class="steps-grid">
-          <div v-for="(step, index) in meta.how_it_works.steps" :key="index" class="step-card">
-            <h3 class="step-title font-title">{{ step.title }}</h3>
-            <p class="step-description">{{ step.description }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <div class="products-selection">
       <div class="container-inner">
@@ -541,41 +531,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
   opacity: 0.6;
 }
 
-.how-it-works-section {
-  padding: 8rem 2rem;
-}
 
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-  text-align: center;
-  margin-top: 4rem;
-}
-
-.step-card {
-  padding: 2.5rem 2rem;
-  background: white;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  border-radius: 4px;
-  transition: transform 0.3s ease;
-}
-
-.step-card:hover {
-  transform: translateY(-5px);
-}
-
-.step-title {
-  font-size: 1.5rem;
-  color: #c5a059;
-  margin-bottom: 1rem;
-}
-
-.step-description {
-  font-size: 1.05rem;
-  color: #555;
-  line-height: 1.6;
-}
 
 .subtitle-cta {
   font-size: 1.25rem;
