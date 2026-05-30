@@ -1,37 +1,37 @@
 <template>
-  <div class="p-8 max-w-4xl mx-auto font-mono text-black">
+  <div class="p-4 sm:p-8 max-w-4xl mx-auto font-mono text-black">
     
     <!-- Simple Title Header -->
-    <div class="flex justify-between items-center pb-6 mb-[200px]">
-      <h1 class="text-xl font-extrabold">AUDIT DES LIENS DE PAIEMENT STRIPE</h1>
-      <div class="space-x-4">
-        <a href="/" class="underline text-sm">[Retour au site]</a>
-        <button class="underline text-sm" @click="handleRefresh">
+    <div class="flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center pb-6 mb-12 sm:mb-[200px]">
+      <h1 class="text-xl font-extrabold text-left">AUDIT DES LIENS DE PAIEMENT STRIPE</h1>
+      <div class="flex flex-wrap gap-4 text-sm shrink-0">
+        <a href="/" class="underline">[Retour au site]</a>
+        <button class="underline cursor-pointer" @click="handleRefresh">
           [{{ isRefreshing ? 'Actualisation...' : 'Actualiser' }}]
         </button>
       </div>
     </div>
 
     <!-- Grouped Link Groups List -->
-    <div class="space-y-0">
+    <div class="space-y-6">
       <div
         v-for="(group, index) in groupedByLink"
         :key="index"
-        style="background-color: #CCC; margin: 30px; padding: 30px;"
-        class="space-y-4"
+        style="background-color: #CCC;"
+        class="p-4 sm:p-[30px] my-6 sm:my-[30px] space-y-4"
       >
         <!-- Group Header info -->
         <div class="space-y-2">
           <div class="font-bold break-all text-base">
             Lien: {{ group.link || 'Sans lien (Sur demande)' }}
           </div>
-          <div class="text-sm space-x-4 text-gray-600">
+          <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-gray-600">
             <span>Statut: {{ group.statusInfo.label }}</span>
             <span v-if="group.crossProduct" class="text-red-650 font-bold">[ERREUR: Produits différents]</span>
             <span v-else-if="group.isDuplicated" class="text-amber-600 font-bold">[Doublon]</span>
             <button
               v-if="group.link"
-              class="underline text-black"
+              class="underline text-black cursor-pointer"
               @click="copyToClipboard(group.link)"
             >
               {{ copiedLink === group.link ? '[Copié]' : '[Copier le lien]' }}
@@ -40,11 +40,11 @@
         </div>
 
         <!-- Variants list with aligned price & button -->
-        <div class="pl-4 space-y-2 text-sm text-gray-700">
+        <div class="pl-2 sm:pl-4 space-y-2 text-sm text-gray-700">
           <div
             v-for="(v, vIdx) in group.variants"
             :key="vIdx"
-            class="flex items-center justify-between gap-4 py-1"
+            class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 py-2 sm:py-1 border-b border-black/10 last:border-b-0 sm:border-b-0"
           >
             <div class="flex items-center gap-2 min-w-0">
               <span class="text-gray-400 shrink-0">•</span>
@@ -52,14 +52,14 @@
               <span class="text-gray-500 truncate">({{ v.variantTitle }})</span>
             </div>
             
-            <div class="flex items-center gap-6 shrink-0 font-mono text-black">
-              <span class="w-32 text-right">
+            <div class="flex items-center justify-between sm:justify-end gap-4 sm:gap-6 w-full sm:w-auto shrink-0 font-mono text-black pl-5 sm:pl-0">
+              <span class="sm:w-32 text-left sm:text-right">
                 {{ v.price || 'Sur demande' }}
               </span>
               <a
                 :href="`/product/${v.productUrl}?variant=${v.variantIndex}`"
                 target="_blank"
-                class="underline text-blue-600 w-16 text-right font-bold"
+                class="underline text-blue-600 sm:w-16 text-right font-bold"
               >
                 [Voir]
               </a>
