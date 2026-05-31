@@ -17,7 +17,7 @@ sections:
       tels que Tiffany, Cartier et Chanel. Totalement autodidacte dans son
       évolution, il se nourrit des défis pour repousser les limites de son
       métier.
-    image: /images/file_0000000042fc71f490e861eeb7e47cbd-1.png
+    image: /images/Screenshot_20250412_145915_Photos.jpg
   - title: La qualité  haute joaillerie au service de la création
     paragraph1: >-
       Vincent mets son savoir-faire d'exception au cœur de chacune de ses
@@ -30,6 +30,7 @@ sections:
       portée à chaque détail. Chaque création est pensée comme une œuvre unique,
       où l'élégance, l'authenticité et l'excellence artisanale s'unissent pour
       donner naissance à des bijoux d'exception, conçus pour traverser le temps.
+    image: /images/file_0000000042fc71f490e861eeb7e47cbd-2.png
 footer_cta:
   title: Discutons de votre projet
   subtitle: L'opportunité de posséder un bijou entièrement conçu pour vous ou
