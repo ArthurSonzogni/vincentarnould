@@ -14,7 +14,7 @@ variants:
     color: gold
     images:
       - image: /images/VINCENT ARNOULD 76.jpg
-      - {}
+      - image: /images/VINCENT ARNOULD 75.jpg
       - image: /images/20230820_114447.jpg
       - image: /images/file_00000000319871f4832dd836ac17b37e.png
 ---
