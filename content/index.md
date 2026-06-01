@@ -25,6 +25,7 @@ sections:
       exigences de la haute joaillerie, alliant précision, raffinement et
       maîtrise des techniques les plus exigeantes artisanal Parisienne 🇫🇷 . 
 
+
       Si ses pièces ne sont pas nécessairement ornées de pierres précieuses,
       elles se distinguent par leur design, leur fabrication et l'attention
       portée à chaque détail. Chaque création est pensée comme une œuvre unique,
