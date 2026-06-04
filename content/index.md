@@ -17,7 +17,9 @@ sections:
       tels que Tiffany, Cartier et Chanel. Totalement autodidacte dans son
       évolution, il se nourrit des défis pour repousser les limites de son
       métier.
-    image: /images/vincent.jpeg
+    image: /images/file_000000008d88720abf83bea28fe1346b.png
+    image_caption: Vincent Arnould avec Son Altesse Sérénissime la Princesse
+      Charlène de Monaco et sa fidèle Kita
   - title: La qualité  haute joaillerie au service de la création
     paragraph1: >-
       Vincent mets son savoir-faire d'exception au cœur de chacune de ses
