@@ -1,10 +1,10 @@
 ---
 title: L'Artisanat d'Exception | Vincent Arnould
-description: Découvrez le savoir-faire de Vincent Arnould, lapidaire.
+description: Découvrez le savoir-faire de Vincent Arnould, lapidaire pierres précieuses.
 logo: /images/file_00000000a1a4720aa2ba50819bc1daad-1.png
 hero:
   title: L'Artisanat d'Exception
-  subtitle: Vincent Arnould, Lapidaire
+  subtitle: "Vincent Arnould, Lapidaire Pierres Précieuses "
   image: /images/about/vincent.jpeg
   video_id: tXxmUyMSLUA
 sections:
