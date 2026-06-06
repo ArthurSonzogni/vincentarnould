@@ -2,8 +2,8 @@
 url: commande-sur-mesure
 collection: sur_mesure
 title: "Boucles d'oreilles haute joaillerie avec tsavorites et tourmalines "
-description: Ces boucles d'oreilles haute joaillerie uniques sont une création
-  sur mesure, réalisées avec des poires tsavorites et des tourmalines facetté et
+description: Ces boucles d'oreilles haute joaillerie sont une création sur
+  mesure, réalisées avec des poires tsavorites et des tourmalines facetté et
   suiffé sur un pavage diamant en or blanc. Chaque pierre a été soigneusement
   sélectionnée pour sa couleur et sa brillance, créant un bijou d'exception qui
   ne manquera pas de faire tourner les têtes.
