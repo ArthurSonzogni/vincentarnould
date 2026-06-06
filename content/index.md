@@ -10,8 +10,8 @@ hero:
 sections:
   - title: Un Savoir-Faire Forgé par le Temps
     paragraph1: Formé au sein de la prestigieuse Maison Van Cleef and Arpels,
-      Vincent Arnould est un Lapidaire dont l'expertise a été forgée durant 20
-      ans au sommet de la Haute Joaillerie française.
+      Vincent Arnould est un Lapidaire en pierres précieuses dont l'expertise a
+      été forgée durant 20 années au sommet de la Haute Joaillerie française.
     paragraph2: En se lançant en freelance auprès d'un sertisseur rue de la Paix, il
       a perfectionné son art autour de gemmes rares et de clients prestigieux
       tels que Tiffany, Cartier et Chanel. Totalement autodidacte dans son
