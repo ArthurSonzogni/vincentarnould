@@ -1,13 +1,13 @@
 ---
 url: dog-necklace
 collection: accessories-for-dogs
-title: Collier
-description: Collier
+title: "Collier avec pierres précieuses "
+description: "Collier en cuir avec émeraudes et tourmalines "
 variants:
   - title: Colliers personalisable sur demande
     price: A partir de 420€
     payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
-    color: "Toutes les couleurs et cuir disponible "
+    color: "Toutes les couleurs et cuir disponible  "
     images:
       - image: /images/IMG-20251019-WA0013-1.jpg
       - {}
