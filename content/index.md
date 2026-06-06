@@ -35,7 +35,7 @@ sections:
   - image: /images/file_000000008d88720abf83bea28fe1346b-1.png
     image_caption: Vincent Arnould avec Son Altesse Sérénissime la Princesse
       Charlène de Monaco et sa fidèle Kita
-  - image: /images/file_000000001f5471fd8d9732d141341389.png
+  - image: /images/file_00000000b66c71f493f2fdfddde425d2.png
     image_caption: "Collaboration autour d'une pièce de haute joaillerie présenté au
       Fouquet's à Paris "
 footer_cta:
