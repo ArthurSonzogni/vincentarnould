@@ -17,7 +17,7 @@ sections:
       tels que Tiffany, Cartier et Chanel. Totalement autodidacte dans son
       évolution, il se nourrit des défis pour repousser les limites de son
       métier.
-    image: /images/vincent-1.jpeg
+    image: /images/file_00000000be347246843fb85707c911bf.png
   - title: La qualité  haute joaillerie au service de la création
     paragraph1: >-
       Vincent mets son savoir-faire d'exception au cœur de chacune de ses
