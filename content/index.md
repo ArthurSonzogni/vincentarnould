@@ -37,7 +37,7 @@ sections:
       Charlène de Monaco et sa fidèle Kita
   - image: /images/file_000000001f5471fd8d9732d141341389.png
     image_caption: "Collaboration autour d'une pièce de haute joaillerie présenté au
-      Fouquet's "
+      Fouquet's à Paris "
 footer_cta:
   title: Discutons de votre projet
   subtitle: L'opportunité de posséder un bijou entièrement conçu pour vous ou
