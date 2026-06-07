@@ -32,12 +32,12 @@ sections:
       où l'élégance, l'authenticité et l'excellence artisanale s'unissent pour
       donner naissance à des bijoux d'exception, conçus pour traverser le temps.
     image: /images/file_0000000042fc71f490e861eeb7e47cbd-2.png
-  - image: /images/file_000000008d88720abf83bea28fe1346b-1.png
-    image_caption: Vincent Arnould avec Son Altesse Sérénissime la Princesse
-      Charlène de Monaco et sa fidèle Kita
-  - image: /images/file_00000000b66c71f493f2fdfddde425d2.png
+  - image: /images/file_00000000b66c71f493f2fdfddde425d2-1.png
     image_caption: "Collaboration autour d'une pièce de haute joaillerie présenté au
       Fouquet's à Paris "
+  - image: /images/file_000000008d88720abf83bea28fe1346b-2.png
+    image_caption: Vincent Arnould avec Son Altesse Sérénissime la Princesse
+      Charlène de Monaco et sa fidèle Kita
 footer_cta:
   title: Discutons de votre projet
   subtitle: L'opportunité de posséder un bijou entièrement conçu pour vous ou
