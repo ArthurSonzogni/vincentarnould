@@ -14,13 +14,13 @@
         Accueil
       </NuxtLink>
 
-      <NuxtLink
+      <button
         @click="scrollToTop"
-        class="text-lg text-gray-700 hover:text-gray-900 dark:text-gray-300
+        class="cursor-pointer text-lg text-gray-700 hover:text-gray-900 dark:text-gray-300
         dark:hover:text-white ml-4"
         >
         Retour en haut
-      </NuxtLink>
+      </button>
 
     </div>
   </div>
@@ -37,3 +37,24 @@ const { data: document } = await useAsyncData(() =>
 );
 
 </script>
+
+<style scoped>
+.about :deep(h1),
+.about :deep(h2),
+.about :deep(h3) {
+  text-wrap: balance;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.about :deep(p) {
+  text-wrap: pretty;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+</style>
