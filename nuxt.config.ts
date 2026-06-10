@@ -6,6 +6,11 @@ export default defineNuxtConfig({
   },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/images/file_00000000a1a4720aa2ba50819bc1daad-2.png' }
+      ]
+    }
   },
   compatibilityDate: '2025-01-01',
   devtools: { enabled: true },
