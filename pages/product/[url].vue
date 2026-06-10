@@ -291,6 +291,7 @@ html {
 
 .title {
   font-weight: bold;
+  text-wrap: balance;
 }
 
 .klarna-advertisement {
@@ -350,4 +351,11 @@ hr {
   }
 }
 
+.other-product h3 {
+  text-wrap: balance;
+}
+
+.font-title {
+  text-wrap: balance;
+}
 </style>

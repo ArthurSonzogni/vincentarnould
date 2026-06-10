@@ -105,4 +105,16 @@ const products = collection.products;
   margin-bottom: 80px;
 }
 
+.title {
+  text-wrap: balance;
+}
+
+.description {
+  text-wrap: pretty;
+}
+
+.products h2 {
+  text-wrap: balance;
+}
+
 </style>
