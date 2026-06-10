@@ -22,7 +22,7 @@ const sortedCollections = computed(() => {
   });
 });
 
-const logo = computed(() => home.value?.logo);
+const logo = computed(() => home.value?.meta?.logo || home.value?.logo);
 
 </script>
 
