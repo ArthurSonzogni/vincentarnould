@@ -33,6 +33,14 @@ content:
           - {name: "image", label: "Image", type: "image"}
           - {name: "image_caption", label: "Légende de l'image", type: "string"}
 
+      - name: "gallery"
+        label: "Galerie de photos"
+        type: "object"
+        list: true
+        fields:
+          - {name: "image", label: "Image", type: "image"}
+          - {name: "image_caption", label: "Légende de l'image", type: "string"}
+
       - name: "footer_cta"
         label: "Pied de page : Appel à l'action"
         type: "object"

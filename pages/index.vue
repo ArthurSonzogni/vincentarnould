@@ -10,7 +10,7 @@ const meta = computed(() => home.value?.meta || {});
 
 const activeSections = computed(() => 
   (meta.value?.sections || []).filter(section => 
-    section && (section.title || section.paragraph1 || section.image || section.images)
+    section && (section.title || section.paragraph1 || section.paragraph2)
   )
 );
 
@@ -105,7 +105,19 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
       </div>
     </div>
 
-
+    <!-- Galerie d'images individuelles -->
+    <div v-if="meta?.gallery && meta.gallery.length > 0" class="gallery-section bg-gray">
+      <div class="container-inner">
+        <div class="gallery-grid" :class="`items-${meta.gallery.length}`">
+          <div v-for="(item, idx) in meta.gallery" :key="idx" class="gallery-item">
+            <div class="gallery-image-wrapper">
+              <img :src="item.image" :alt="item.image_caption || 'Galerie image'" />
+            </div>
+            <p v-if="item.image_caption" class="gallery-caption">{{ item.image_caption }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="products-selection">
       <div class="container-inner">
@@ -289,6 +301,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
   font-size: 3.5rem;
   letter-spacing: 0.05em;
   margin-bottom: 1rem;
+  text-wrap: balance;
 }
 
 .subtitle {
@@ -297,6 +310,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
   text-transform: uppercase;
   color: #e5e5e5;
   margin-bottom: 2rem;
+  text-wrap: balance;
 }
 
 .hero-caption {
@@ -354,6 +368,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
   color: #111;
   margin-bottom: 1rem;
   line-height: 1.2;
+  text-wrap: balance;
 }
 
 .divider {
@@ -420,6 +435,79 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
   border-top: 1px solid #eee;
 }
 
+.gallery-section {
+  padding: 6rem 2rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  justify-content: center;
+  align-items: end;
+}
+
+@media (min-width: 900px) {
+  .gallery-grid.items-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+  .gallery-grid.items-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+  .gallery-grid.items-4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.gallery-image-wrapper {
+  height: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .gallery-image-wrapper {
+    height: 400px;
+  }
+}
+
+.gallery-image-wrapper img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover .gallery-image-wrapper img {
+  transform: scale(1.03);
+}
+
+.gallery-caption {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #555;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 85%;
+  text-wrap: balance;
+}
+
 .products-selection {
   padding: 8rem 2rem;
   background-color: #fff;
@@ -434,6 +522,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 4rem;
+  text-wrap: balance;
 }
 
 .product-grid {
@@ -478,6 +567,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  text-wrap: balance;
 }
 
 .product-price {
@@ -493,6 +583,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
 .footer-cta h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  text-wrap: balance;
 }
 
 .footer-cta p {
@@ -538,6 +629,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
   color: #666;
   margin-bottom: 2rem;
   font-style: italic;
+  text-wrap: balance;
 }
 
 .scarcity-box {

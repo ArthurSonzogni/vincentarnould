@@ -32,6 +32,7 @@ sections:
       où l'élégance, l'authenticité et l'excellence artisanale s'unissent pour
       donner naissance à des bijoux d'exception, conçus pour traverser le temps.
     image: /images/file_0000000042fc71f490e861eeb7e47cbd-2.png
+gallery:
   - image: /images/file_00000000b66c71f493f2fdfddde425d2-1.png
     image_caption: "Collaboration autour d'une pièce de haute joaillerie présenté au
       Fouquet's à Paris "
