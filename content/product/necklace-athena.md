@@ -20,10 +20,10 @@ variants:
     payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
     color: argent
     images:
-      - image: /images/necklace-silver.jpeg
-      - image: /images/necklace-silver-2.jpeg
+      - image: /images/file_00000000a5c4724390ad00b0522ce0c9-1.png
+      - image: /images/file_00000000ec6c71f499f4888043040ae3 (1).png
       - image: /images/VINCENT ARNOULD 22.jpg
-      - image: /images/VINCENT ARNOULD 16.jpg
+      - {}
       - image: /images/VINCENT ARNOULD 226.jpg
       - image: /images/IMG-20250804-WA0012.jpg
   - title: Argent poli
