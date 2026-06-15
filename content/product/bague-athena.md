@@ -20,7 +20,7 @@ variants:
       - image: /images/vincent_2.jpeg
   - title: "Argent brossé "
     price: "370 euros "
-    payment_link: https://buy.stripe.com/3cIcN6eZi4bW8Owch50kE05
+    payment_link: https://buy.stripe.com/fZu8wQ9EY37S7Ksepd0kE0c
     color: "Argent brossé "
     images:
       - image: /images/VINCENT ARNOULD 64-1.jpg
