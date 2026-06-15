@@ -29,7 +29,7 @@ variants:
       - image: /images/IMG_2335.jpg
   - title: Argent poli
     price: "440 euros "
-    payment_link: https://buy.stripe.com/5kQ8wQ2cw7o84yg5SH0kE04
+    payment_link: https://buy.stripe.com/8x28wQ8AUeQA1m45SH0kE0h
     color: Argent poli
     images:
       - image: /images/file_0000000014c87243bce4b2d5dd825d87.png
