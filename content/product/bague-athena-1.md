@@ -35,7 +35,7 @@ variants:
       - image: /images/file_00000000ab4c7243957b326f6bf5a778-1.png
   - title: Canon de fusil
     price: "290 euros "
-    payment_link: https://buy.stripe.com/cNi3cwaJ29wg2q81Cr0kE06
+    payment_link: https://buy.stripe.com/8x2fZi5oI9wge8Q0yn0kE0a
     color: Canon de fusil
     images:
       - image: /images/file_000000008e0c72438ab6fb3423f562f1.png
