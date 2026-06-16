@@ -9,8 +9,8 @@ description: Rehaussez votre style avec ces élégantes boucles d'oreilles. Leur
 variants:
   - title: Doré
     price: "440 euros "
-    payment_link: https://buy.stripe.com/9B65kEg3m9wg2q82Gv0kE0g
-    color: gold
+    payment_link: https://buy.stripe.com/9B600k8AUdMw7Ks3Kz0kE0i
+    color: "Doré "
     images:
       - image: /images/earring-gold.jpeg
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 211.jpg
