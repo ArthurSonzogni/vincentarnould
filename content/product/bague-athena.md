@@ -11,7 +11,7 @@ variants:
   - title: Doré
     price: "370 euros "
     payment_link: https://buy.stripe.com/00w9AU3gA0ZK3ucch50kE0e
-    color: "Doré "
+    color: Doré
     images:
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 206.jpg
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 194.jpg
