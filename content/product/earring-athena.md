@@ -1,7 +1,7 @@
 ---
 url: athena-boucle-oreilles
 collection: athena
-title: Boucles d'Oreilles
+title: "Boucles d'oreilles "
 description: Rehaussez votre style avec ces élégantes boucles d'oreilles. Leur
   design raffiné met en valeur une subtile touche de couleur, parfaites pour
   ajouter une note de sophistication à toutes vos tenues. Fabriquées avec des
