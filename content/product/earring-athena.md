@@ -9,7 +9,7 @@ description: Rehaussez votre style avec ces élégantes boucles d'oreilles. Leur
 variants:
   - title: Doré
     price: "440 euros "
-    payment_link: https://buy.stripe.com/14A6oI3gA4bW1m4dl90kE0f
+    payment_link: https://buy.stripe.com/9B600k8AUdMw7Ks3Kz0kE0i
     color: gold
     images:
       - image: /images/earring-gold.jpeg
