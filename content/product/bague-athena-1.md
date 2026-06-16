@@ -8,7 +8,7 @@ description: La bague simple de la collection Athéna est un bijou d'une grande
 variants:
   - title: "Doré "
     price: 290 euros
-    payment_link: https://buy.stripe.com/dRm8wQ04o8sc4yg80P0kE07
+    payment_link: https://buy.stripe.com/8x2fZi5oI9wge8Q0yn0kE0a
     color: Doré
     images:
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 191-1.jpg
