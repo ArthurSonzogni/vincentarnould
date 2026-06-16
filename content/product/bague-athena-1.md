@@ -1,7 +1,7 @@
 ---
 url: bague-athena
 collection: athena
-title: Bague simple doré
+title: Bague simple
 description: La bague simple de la collection Athéna est un bijou d'une grande
   finesse. Son design épuré et élégant en fait un accessoire facile à porter au
   quotidien, tout en ajoutant une touche de sophistication à votre main.
