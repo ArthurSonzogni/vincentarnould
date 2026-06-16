@@ -17,7 +17,7 @@ variants:
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 92-1.jpg
   - title: "Argent brossé "
     price: 290 euros
-    payment_link: https://buy.stripe.com/28E14oeZiaAk2q86WL0kE0d
+    payment_link: https://buy.stripe.com/7sYbJ2g3m37S0i0dl90kE09
     color: "Argent brossé "
     images:
       - image: /images/VINCENT ARNOULD 53.jpg
