@@ -10,8 +10,8 @@ description: Cette bague en argent massif est un bijou d'exception, alliant
 variants:
   - title: Doré
     price: "370 euros "
-    payment_link: https://buy.stripe.com/00wfZicRa5g0d4M2Gv0kE0b
-    color: gold
+    payment_link: https://buy.stripe.com/00w9AU3gA0ZK3ucch50kE0e
+    color: "Doré "
     images:
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 206.jpg
       - image: /images/VINCENT ARNOULD BAGUE 2 DOIGTS 194.jpg
