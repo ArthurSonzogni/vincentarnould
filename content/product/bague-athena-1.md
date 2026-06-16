@@ -27,7 +27,7 @@ variants:
       - image: /images/VINCENT ARNOULD 248-1.jpg
   - title: Argent poli
     price: 290 euros
-    payment_link: https://buy.stripe.com/7sYbJ2g3m37S0i0dl90kE09
+    payment_link: https://buy.stripe.com/7sY14o5oIfUEc0I4OD0kE08
     color: Argent poli
     images:
       - image: /images/file_00000000544872439fd923aa73d9907a-1.png
