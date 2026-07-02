@@ -7,6 +7,4 @@ variants:
   - title: "Laisse "
     price: "Sur demande "
     color: "Personnalisé "
-    images:
-      - {}
 ---
