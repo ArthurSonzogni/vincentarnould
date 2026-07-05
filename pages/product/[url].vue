@@ -136,10 +136,12 @@
 
     <hr class="border-gray-100" />
 
-    <template v-for="collection in Object.values(collections)">
-      <div v-if="collection.products.length > 0 && collection.url !== product.collection" class="container mt-24 mb-24">
+    <template v-for="collection in orderedCollections">
+      <div v-if="collection.products.length > 0" class="container mt-24 mb-24">
         <div class="text-center mb-12">
-          <h2 class="text-xs tracking-[0.3em] text-gray-400 uppercase mb-3">Découvrir aussi</h2>
+          <h2 class="text-xs tracking-[0.3em] text-gray-400 uppercase mb-3">
+            {{ collection.url === product.collection ? 'Dans la même collection' : 'Découvrir aussi' }}
+          </h2>
           <h1 class="text-4xl font-title">{{ collection.title }}</h1>
         </div>
 
@@ -185,6 +187,17 @@ const router = useRouter();
 const url = useRoute().params.url;
 const product = await queryCollection('product').where('url', '=', url).first();
 const collections = await GetCollections();
+
+const orderedCollections = computed(() => {
+  const all = Object.values(collections);
+  const currentCollectionUrl = product?.collection;
+  if (!currentCollectionUrl) return all;
+  
+  const current = all.find(c => c.url === currentCollectionUrl);
+  const others = all.filter(c => c.url !== currentCollectionUrl);
+  
+  return current ? [current, ...others] : all;
+});
 
 const variant = ref(0);
 try {
