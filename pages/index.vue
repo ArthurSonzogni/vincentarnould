@@ -527,14 +527,18 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 3rem;
+  justify-content: center;
 }
 
 .product-card {
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s ease;
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .product-card:hover {
