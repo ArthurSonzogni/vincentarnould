@@ -7,6 +7,13 @@ import { SITE_URL } from './composables/site.mjs'
 // Tant qu'il est vide, aucun script de mesure n'est charge.
 const CLOUDFLARE_ANALYTICS_TOKEN = '05796ad257d24890a036f33f487010f4'
 
+// Pages encore a l'etat d'ebauche : accessibles, mais tenues hors du sitemap et
+// des robots tant que leur contenu n'est pas redige. Retirer la ligne une fois
+// la fiche remplie.
+const NOINDEX = [
+  '/product/dog-necklace', // titre "Coming soon", description vide
+]
+
 // Routes des pages dynamiques, lues depuis le frontmatter des fichiers de contenu.
 // Sans elles, les fiches produit ne sont pas generees et renvoient une 404.
 function contentRoutes(dir: string, prefix: string) {
@@ -64,9 +71,11 @@ export default defineNuxtConfig({
         '/',
         '/cgu',
         '/cgv',
+        '/mentions-legales',
+        '/confidentialite',
         ...contentRoutes('product', '/product'),
         ...contentRoutes('collection', '/collection'),
-      ]
+      ].filter(page => !NOINDEX.includes(page))
       // Le site redirige (301) vers l'URL avec slash final : on liste
       // directement la forme canonique pour eviter un saut de redirection.
       const urls = pages
@@ -79,9 +88,12 @@ export default defineNuxtConfig({
         `<?xml version="1.0" encoding="UTF-8"?>\n`
         + `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
       )
+      const disallow = ['/audit', ...NOINDEX]
+        .map(path => `Disallow: ${path}`)
+        .join('\n')
       writeFileSync(
         join(dir, 'robots.txt'),
-        `User-agent: *\nAllow: /\nDisallow: /audit\n\nSitemap: ${SITE_URL}/sitemap.xml\n`,
+        `User-agent: *\nAllow: /\n${disallow}\n\nSitemap: ${SITE_URL}/sitemap.xml\n`,
       )
     },
   },

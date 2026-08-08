@@ -60,7 +60,7 @@ Toute reproduction, représentation, modification, adaptation ou exploitation, p
 
 L’éditeur du Site peut être amené à collecter des données personnelles concernant l’Utilisateur dans le cadre de l’utilisation du Site (création de compte, commande, etc.).
 
-Les modalités de collecte, de traitement et de protection des données sont détaillées dans la \[Politique de Confidentialité\] du Site.
+Les modalités de collecte, de traitement et de protection des données sont détaillées dans la [Politique de confidentialité](/confidentialite) du Site.
 
 Conformément à la réglementation applicable (notamment le RGPD), l’Utilisateur dispose d’un droit d’accès, de rectification, de suppression et d’opposition sur les données le concernant. Il peut exercer ces droits en contactant le responsable via l’adresse fournie dans les mentions légales.
 
@@ -153,7 +153,7 @@ _Dernière mise à jour : 1 Juin 2025_
   
   L’éditeur du Site peut être amené à collecter des données personnelles concernant l’Utilisateur dans le cadre de l’utilisation du Site (création de compte, commande, etc.).
   
-  Les modalités de collecte, de traitement et de protection des données sont détaillées dans la [Politique de Confidentialité] du Site.
+  Les modalités de collecte, de traitement et de protection des données sont détaillées dans la [Politique de confidentialité](/confidentialite) du Site.
   
   Conformément à la réglementation applicable (notamment le RGPD), l’Utilisateur dispose d’un droit d’accès, de rectification, de suppression et d’opposition sur les données le concernant. Il peut exercer ces droits en contactant le responsable via l’adresse fournie dans les mentions légales.
   

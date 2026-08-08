@@ -73,7 +73,7 @@
  
  ## 9. Données personnelles
  
- Les données collectées lors de la commande sont traitées conformément à la législation en vigueur. Pour plus de détails, le Client est invité à consulter la [Politique de Confidentialité] du Site.
+ Les données collectées lors de la commande sont traitées conformément à la législation en vigueur. Pour plus de détails, le Client est invité à consulter la [Politique de confidentialité](/confidentialite) du Site.
  
  ---
  

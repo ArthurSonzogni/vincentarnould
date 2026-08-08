@@ -79,6 +79,12 @@ const logo = computed(() => home.value?.meta?.logo || home.value?.logo);
           <NuxtLink to="/cgv" class="hover:text-gray-600 transition-colors" @click="open = false">
             Conditions Générales de Vente
           </NuxtLink>
+          <NuxtLink to="/mentions-legales" class="hover:text-gray-600 transition-colors" @click="open = false">
+            Mentions légales
+          </NuxtLink>
+          <NuxtLink to="/confidentialite" class="hover:text-gray-600 transition-colors" @click="open = false">
+            Politique de confidentialité
+          </NuxtLink>
         </div>
       </div>
     </template>
