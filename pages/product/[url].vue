@@ -129,7 +129,7 @@
             </div>
 
             <div v-if="product?.variants?.[variant]?.payment_link" class="klarna-advertisement">
-              Payez en 2x sans frais with Klarna
+              Payez en 2x sans frais avec Klarna
             </div>
             <div class="reassurance mt-8 text-sm text-gray-600 flex flex-col gap-2">
               <div class="flex items-center gap-2">
