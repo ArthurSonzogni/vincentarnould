@@ -38,6 +38,14 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/png', href: '/images/file_00000000a1a4720aa2ba50819bc1daad-2.png' }
       ],
+      meta: [
+        // Verification de propriete Google Search Console (methode balise HTML,
+        // choisie parce que le DNS du domaine n'est pas administre ici).
+        {
+          name: 'google-site-verification',
+          content: '9xlKfoqTMoN-DfKk1qOtOCtTfVgs86CG5jyzXsLMozs',
+        },
+      ],
       script: CLOUDFLARE_ANALYTICS_TOKEN
         ? [{
             src: 'https://static.cloudflareinsights.com/beacon.min.js',
@@ -59,8 +67,10 @@ export default defineNuxtConfig({
         ...contentRoutes('product', '/product'),
         ...contentRoutes('collection', '/collection'),
       ]
+      // Le site redirige (301) vers l'URL avec slash final : on liste
+      // directement la forme canonique pour eviter un saut de redirection.
       const urls = pages
-        .map(page => `  <url><loc>${SITE_URL}${encodeURI(page)}</loc></url>`)
+        .map(page => `  <url><loc>${SITE_URL}${encodeURI(page)}${page === '/' ? '' : '/'}</loc></url>`)
         .join('\n')
       const dir = nitro.options.output.publicDir
 
