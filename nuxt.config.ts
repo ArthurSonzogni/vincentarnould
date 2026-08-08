@@ -5,7 +5,7 @@ import { SITE_URL } from './composables/site.mjs'
 // Jeton Cloudflare Web Analytics (public, sans cookie).
 // A recuperer dans Cloudflare > Analytics & Logs > Web Analytics.
 // Tant qu'il est vide, aucun script de mesure n'est charge.
-const CLOUDFLARE_ANALYTICS_TOKEN = ''
+const CLOUDFLARE_ANALYTICS_TOKEN = '05796ad257d24890a036f33f487010f4'
 
 // Routes des pages dynamiques, lues depuis le frontmatter des fichiers de contenu.
 // Sans elles, les fiches produit ne sont pas generees et renvoient une 404.
@@ -41,7 +41,7 @@ export default defineNuxtConfig({
       script: CLOUDFLARE_ANALYTICS_TOKEN
         ? [{
             src: 'https://static.cloudflareinsights.com/beacon.min.js',
-            defer: true,
+            type: 'module',
             'data-cf-beacon': `{"token": "${CLOUDFLARE_ANALYTICS_TOKEN}"}`,
           }]
         : [],
