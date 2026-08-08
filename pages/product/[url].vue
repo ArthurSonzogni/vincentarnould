@@ -51,6 +51,11 @@
               Cette pièce est disponible sur demande. Contactez-nous pour plus d'informations.
             </div>
 
+            <div v-if="isRing" class="ring-size mt-4 p-3 border border-gray-100 bg-gray-50 text-xs text-gray-600 text-center">
+              Taille de bague à choisir à l'étape du paiement — ou « Je ne connais pas ma taille »
+              si vous préférez en discuter avec Vincent.
+            </div>
+
             <div v-if="product?.variants?.[variant]?.payment_link" class="klarna-advertisement text-center">
               Payez en 2x sans frais avec Klarna
             </div>
@@ -105,6 +110,22 @@
             <div v-else class="mt-8 p-6 border border-gray-100 bg-gray-50 text-center text-gray-500 italic">
               Cette pièce d'exception est disponible sur demande. <br/>
               <a href="mailto:vinc388@hotmail.fr" class="underline hover:text-black transition-colors">Contactez Vincent Arnould</a> pour personnaliser votre commande.
+            </div>
+
+            <div v-if="isRing" class="ring-size mt-6 p-5 border border-gray-100 bg-gray-50 text-sm text-gray-700">
+              <div class="flex items-center gap-2 mb-3 font-medium text-black">
+                <UIcon name="i-lucide-ruler" class="text-yellow-600 size-4" />
+                <span>Votre taille de bague</span>
+              </div>
+              <p class="mb-3">
+                Vous choisirez votre tour de doigt à l'étape du paiement. Si vous ne le connaissez pas,
+                sélectionnez « Je ne connais pas ma taille » : Vincent vous contactera pour la déterminer avec vous.
+              </p>
+              <p class="text-gray-600">
+                Pour la mesurer vous-même : entourez votre doigt d'une bandelette de papier, marquez le point
+                de rencontre, puis mesurez la longueur obtenue en millimètres. Cette longueur est votre taille
+                (par exemple 52 mm = taille 52). Mesurez en fin de journée, doigts à température ambiante.
+              </p>
             </div>
 
             <div v-if="product?.variants?.[variant]?.payment_link" class="klarna-advertisement">
@@ -180,6 +201,7 @@
 <script setup lang="ts">
 
 import { GetCollections } from '/composables/collections';
+import { AbsoluteUrl } from '/composables/site';
 
 const route = useRoute();
 const router = useRouter();
@@ -214,6 +236,11 @@ variant.value = Math.min(
   variantsLength - 1
 );
 
+// Les bagues demandent un tour de doigt, collecte a l'etape du paiement Stripe.
+const isRing = computed(() =>
+  /^bague/i.test(product?.title || '') && !!product?.variants?.[variant.value]?.payment_link
+);
+
 watch([variant], () => {
   router.replace({
     query: {
@@ -228,7 +255,9 @@ useSeoMeta({
   description: product?.description,
   ogTitle: `${product?.title} | Vincent Arnould`,
   ogDescription: product?.description,
-  ogImage: () => product?.variants?.[variant.value]?.images?.[0]?.image || '',
+  ogImage: () => AbsoluteUrl(product?.variants?.[variant.value]?.images?.[0]?.image),
+  ogUrl: AbsoluteUrl(`/product/${url}`),
+  ogType: 'website',
   twitterCard: 'summary_large_image',
 });
 </script>

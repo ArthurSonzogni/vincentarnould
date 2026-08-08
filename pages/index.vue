@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { GetCollections } from '/composables/collections';
+import { AbsoluteUrl, SITE_URL } from '/composables/site';
 
 const { data: home } = await useAsyncData(() =>
   queryCollection('content').path('/').first()
@@ -14,9 +15,18 @@ const activeSections = computed(() =>
   )
 );
 
+const seoTitle = home.value?.title || 'L\'Artisanat d\'Exception | Vincent Arnould';
+const seoDescription = home.value?.description || 'Découvrez le savoir-faire de Vincent Arnould, lapidaire.';
+
 useSeoMeta({
-  title: home.value?.title || 'L\'Artisanat d\'Exception | Vincent Arnould',
-  description: home.value?.description || 'Découvrez le savoir-faire de Vincent Arnould, lapidaire.',
+  title: seoTitle,
+  description: seoDescription,
+  ogTitle: seoTitle,
+  ogDescription: seoDescription,
+  ogImage: AbsoluteUrl(meta.value?.hero?.image),
+  ogUrl: SITE_URL,
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
 })
 
 const showVideo = ref(false);
