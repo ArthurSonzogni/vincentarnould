@@ -6,7 +6,6 @@ description: " "
 variants:
   - title: Colliers personalisable sur demande
     price: A partir de 420€
-    payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
     color: "Toutes les couleurs et cuir disponible  "
     images:
       - image: /images/file_000000005c4872308bcbfdeffbb8e385.png

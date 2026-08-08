@@ -10,7 +10,6 @@ description: Ces boucles d'oreilles haute joaillerie sont une création sur
 variants:
   - title: "BO haute joaillerie "
     price: Sur demande
-    payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
     color: gold
     images:
       - image: /images/VINCENT ARNOULD 76.jpg

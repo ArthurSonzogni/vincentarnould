@@ -9,7 +9,6 @@ description: Mettez en valeur votre décolleté avec ce délicat collier en arge
 variants:
   - title: Doré
     price: "Sur demande "
-    payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
     color: Or
     images:
       - image: /images/file_000000005dd471f4a61abe97cc2e85a9-1.png
@@ -17,7 +16,6 @@ variants:
       - image: /images/file_0000000029387246a7d4152550d256cf-1.png
   - title: "Argent brossé "
     price: Sur demande
-    payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
     color: argent
     images:
       - image: /images/file_00000000a5c4724390ad00b0522ce0c9-1.png
@@ -27,7 +25,6 @@ variants:
       - image: /images/IMG-20250804-WA0012.jpg
   - title: Argent poli
     price: Sur demande
-    payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
     color: Argent poli
     images:
       - image: /images/file_00000000941c71f48dfa75aece693a78.png
@@ -35,7 +32,6 @@ variants:
       - image: /images/file_000000002f887243893560d8b9498362.png
   - title: Canon de fusil
     price: Sur demande
-    payment_link: https://buy.stripe.com/test_8wM03B1TGca3cXCdQQ
     color: Noir
     images:
       - image: /images/file_00000000ccd871f4bc7f7eaf30d97ad3.png
