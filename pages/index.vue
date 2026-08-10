@@ -86,13 +86,14 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
   <div class="storytelling">
     <div class="hero">
       <div class="hero-background">
-        <img :class="{ 'fade-out': showVideo && meta.hero?.video_id }" :src="meta.hero?.image || '/images/about/vincent.jpeg'" fetchpriority="high" alt="Vincent Arnould, lapidaire en pierres de couleur, dans son atelier" class="hero-image" />
+        <NuxtImg :class="{ 'fade-out': showVideo && meta.hero?.video_id }" :src="meta.hero?.image || '/images/about/vincent.jpeg'" sizes="sm:100vw md:100vw lg:100vw" format="webp" fetchpriority="high" alt="Vincent Arnould, lapidaire en pierres de couleur, dans son atelier" class="hero-image" />
         <iframe 
           v-if="showVideo && meta.hero?.video_id"
           class="hero-video"
-          :src="`https://www.youtube.com/embed/${meta.hero.video_id}?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=${meta.hero.video_id}&controls=0&showinfo=0&rel=0`" 
-          title="Vincent Arnould Lapidaire" 
-          frameborder="0" 
+          :src="`https://www.youtube-nocookie.com/embed/${meta.hero.video_id}?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=${meta.hero.video_id}&controls=0&showinfo=0&rel=0`"
+          title="Vincent Arnould, lapidaire en pierres de couleur, au travail dans son atelier"
+          loading="lazy"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen
         ></iframe>
@@ -135,9 +136,11 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
             :ui="{ item: 'basis-full' }"
             dots
           >
-            <img
+            <NuxtImg
               :src="typeof item === 'string' ? item : item.image"
-              loading="lazy"
+              sizes="sm:100vw md:50vw lg:50vw"
+              format="webp"
+              loading="eager"
               decoding="async"
               :alt="section.title"
               class="carousel-image"
@@ -145,7 +148,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
           </UCarousel>
         </div>
         <div v-else-if="section.image" class="image-with-caption">
-          <img :src="section.image" loading="lazy" decoding="async" :alt="section.title" />
+          <NuxtImg :src="section.image" sizes="sm:100vw md:50vw lg:50vw" format="webp" loading="eager" decoding="async" :alt="section.title" />
           <p v-if="section.image_caption" class="image-caption">{{ section.image_caption }}</p>
         </div>
       </div>
@@ -157,7 +160,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
         <div class="gallery-grid" :class="`items-${meta.gallery.length}`">
           <div v-for="(item, idx) in meta.gallery" :key="idx" class="gallery-item">
             <div class="gallery-image-wrapper">
-              <img :src="item.image" loading="lazy" decoding="async" :alt="item.image_caption || 'Galerie image'" />
+              <NuxtImg :src="item.image" sizes="sm:100vw md:50vw lg:50vw" format="webp" loading="eager" decoding="async" :alt="item.image_caption || 'Galerie image'" />
             </div>
             <p v-if="item.image_caption" class="gallery-caption">{{ item.image_caption }}</p>
           </div>
@@ -176,12 +179,14 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
             class="product-card"
           >
             <div class="image-wrapper">
-              <img 
+              <NuxtImg
                 v-if="product?.variants?.[0]?.images?.[0]"
-                :src="product.variants[0].images[0].image" 
-                loading="lazy"
+                :src="product.variants[0].images[0].image"
+                sizes="sm:50vw md:33vw lg:400px"
+                format="webp"
+                loading="eager"
                 decoding="async"
-                :alt="product.title" 
+                :alt="product.title"
               />
             </div>
             <div class="product-info">
@@ -204,12 +209,14 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
             class="product-card"
           >
             <div class="image-wrapper">
-              <img 
+              <NuxtImg
                 v-if="product?.variants?.[0]?.images?.[0]"
-                :src="product.variants[0].images[0].image" 
-                loading="lazy"
+                :src="product.variants[0].images[0].image"
+                sizes="sm:50vw md:33vw lg:400px"
+                format="webp"
+                loading="eager"
                 decoding="async"
-                :alt="product.title" 
+                :alt="product.title"
               />
             </div>
             <div class="product-info">

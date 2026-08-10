@@ -107,6 +107,21 @@ export default defineNuxtConfig({
   ogImage: {
     enabled: false,
   },
+  // Les photos arrivent du CMS telles quelles (jusqu'a 1 Mo, extensions parfois
+  // fausses : des JPEG nommes .png). <NuxtImg> les reencode au build en WebP et
+  // genere les largeurs intermediaires, sans toucher aux fichiers d'origine.
+  // Le format se declare sur chaque composant (format="webp") : l'option de
+  // module ne sert que de repli et n'est pas appliquee par defaut.
+  //
+  // Toutes les images sont en chargement immediat (loading="eager"). Le
+  // chargement differe a ete essaye puis abandonne : Chrome ne demandait jamais
+  // certaines vignettes, meme amenees au centre de l'ecran, et les grandes
+  // photos produit (sans hauteur declaree, proportions variables) restaient a
+  // 0 px en repoussant les suivantes hors champ. Apres conversion une page
+  // complete pese moins de 200 Ko : le differe n'apportait plus rien.
+  image: {
+    quality: 80,
+  },
   css: ['assets/css/main.css'],
   content: {
     build: {

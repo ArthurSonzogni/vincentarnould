@@ -2,14 +2,19 @@
   <div v-if="product">
     <div class="main-container">
       <div class="images">
-        <!-- Seule la premiere image est chargee en priorite : c'est le plus gros
-             element visible a l'ouverture, celui que Google chronometre (LCP).
-             Les suivantes attendent le defilement. -->
-        <img class="image"
+        <!-- Chargement immediat, volontairement. Ces photos n'ont pas de hauteur
+             declaree (leurs proportions varient de 1:2 a 3:2) : en "lazy" elles
+             occupent 0 px, et le chargement de l'une repousse les suivantes hors
+             de l'ecran, si bien qu'elles ne se chargent jamais. Une fois
+             converties en WebP elles pesent ~40 Ko piece, le gain ne justifie
+             pas le risque. La premiere reste prioritaire (c'est le LCP). -->
+        <NuxtImg class="image"
              v-for="(image, index) in product?.variants?.[variant]?.images"
              :key="index"
              :src="image.image"
-             :loading="index === 0 ? 'eager' : 'lazy'"
+             sizes="sm:100vw md:50vw lg:50vw"
+             format="webp"
+             loading="eager"
              :fetchpriority="index === 0 ? 'high' : 'auto'"
              decoding="async"
              :alt="`${product.title} - ${product?.variants?.[variant]?.title}`"
@@ -163,7 +168,7 @@
 
     <hr class="border-gray-100" />
 
-    <template v-for="collection in orderedCollections">
+    <template v-for="collection in orderedCollections" :key="collection.url">
       <div v-if="collection.products.length > 0" class="container mt-24 mb-24">
         <div class="text-center mb-12">
           <p class="text-xs tracking-[0.3em] text-gray-400 uppercase mb-3">
@@ -180,10 +185,16 @@
             :class="['other-product group', p.url === product.url ? 'opacity-50 cursor-default' : '']"
           >
             <div class="image-wrapper aspect-square bg-gray-50 overflow-hidden">
-              <img class="miniature w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              <!-- "eager" a dessein : en lazy, Chrome ne demande jamais ces
+                   vignettes, meme une fois amenees au centre de l'ecran (teste).
+                   Redimensionnees a 400 px et converties en WebP elles pesent
+                   ~3 Ko chacune, le chargement immediat ne coute rien. -->
+              <NuxtImg class="miniature w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                    v-if="p?.variants?.[0]?.images?.[0]"
                    :src="p?.variants?.[0]?.images?.[0]?.image"
-                   loading="lazy"
+                   sizes="sm:50vw md:33vw lg:400px"
+                   format="webp"
+                   loading="eager"
                    decoding="async"
                    :alt="p.title"
               />

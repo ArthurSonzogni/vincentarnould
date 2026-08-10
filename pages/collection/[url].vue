@@ -1,8 +1,10 @@
 <template>
   <div>
-  <img class="cover-image"
+  <NuxtImg class="cover-image"
        v-if="collection.cover_image"
        :src="collection.cover_image"
+       sizes="sm:100vw md:100vw lg:100vw"
+       format="webp"
        fetchpriority="high"
        :alt="collection.title"
        />
@@ -25,10 +27,12 @@
     <div class="products-list">
       <div v-for="product in products" class="products">
            <NuxtLink :to="`/product/${product.url}`"> 
-           <img class="miniature mx-auto"
+           <NuxtImg class="miniature mx-auto"
                 v-if="product.variants?.[0]?.images?.[0]"
                 :src="product.variants[0].images[0].image"
-                loading="lazy"
+                sizes="sm:100vw md:300px lg:300px"
+                format="webp"
+                loading="eager"
                 decoding="async"
                 :alt="product.title"
                 />
@@ -52,10 +56,12 @@
         :ui="{ item: 'lg:basis-1/3 md:basis-1/2 sd:basis-full' }"
         dots
         >
-        <img
+        <NuxtImg
           v-if="item.image"
           :src="item.image"
-          loading="lazy"
+          sizes="sm:100vw md:50vw lg:33vw"
+          format="webp"
+          loading="eager"
           decoding="async"
           :alt="collection.title"
           class="rounded-lg"

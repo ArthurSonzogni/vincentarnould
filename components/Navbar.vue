@@ -43,7 +43,7 @@ const logo = computed(() => home.value?.meta?.logo || home.value?.logo);
       <div class="flex flex-col h-full bg-white relative">
         <!-- Logo en haut -->
         <div class="flex items-center justify-center w-full h-64 overflow-hidden bg-white border-b border-gray-100 shrink-0 pt-8">
-          <img v-if="logo" :src="logo" alt="Logo" class="h-full w-full object-contain scale-[1.2]" />
+          <NuxtImg v-if="logo" :src="logo" width="400" format="webp" loading="eager" alt="Vincent Arnould" class="h-full w-full object-contain scale-[1.2]" />
         </div>
 
         <!-- Corps du menu -->
