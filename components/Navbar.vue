@@ -43,7 +43,11 @@ const logo = computed(() => home.value?.meta?.logo || home.value?.logo);
       <div class="flex flex-col h-full bg-white relative">
         <!-- Logo en haut -->
         <div class="flex items-center justify-center w-full h-64 overflow-hidden bg-white border-b border-gray-100 shrink-0 pt-8">
-          <NuxtImg v-if="logo" :src="logo" width="400" format="webp" loading="eager" alt="Vincent Arnould" class="h-full w-full object-contain scale-[1.2]" />
+          <!-- <img> et non <NuxtImg> : ce panneau n'existe qu'une fois le menu
+               ouvert, donc jamais au prerendu. IPX ne genere que les variantes
+               des images presentes dans le HTML statique, si bien qu'un
+               <NuxtImg> pointerait ici vers une URL /_ipx/ inexistante (404). -->
+          <img v-if="logo" :src="logo" width="512" height="512" alt="Vincent Arnould" class="h-full w-full object-contain scale-[1.2]" />
         </div>
 
         <!-- Corps du menu -->

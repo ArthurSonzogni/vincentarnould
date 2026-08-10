@@ -6,8 +6,8 @@ Le présent site est édité par :
 
 - **Dénomination** : EI Vincent Arnould
 - **Forme juridique** : Entrepreneur individuel
-- **Adresse** : `[À COMPLÉTER : adresse de l'établissement]`
-- **Téléphone** : `[À COMPLÉTER : numéro de téléphone]`
+- **Adresse** : 5 rue Pajol, 75018 Paris, France
+- **Téléphone** : +33 6 17 40 20 13
 - **Email** : vinc388@hotmail.fr
 - **Numéro SIRET** : `[À COMPLÉTER : SIRET à 14 chiffres]`
 - **Numéro de TVA intracommunautaire** : `[À COMPLÉTER, ou mentionner « TVA non applicable, article 293 B du CGI » si franchise en base]`

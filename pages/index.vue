@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { GetCollections } from '/composables/collections';
-import { AbsoluteUrl, CanonicalUrl, SITE_NAME, SITE_URL } from '/composables/site';
+import { AbsoluteUrl, BUSINESS, CanonicalUrl, SITE_NAME, SITE_URL } from '/composables/site';
 
 const { data: home } = await useAsyncData(() =>
   queryCollection('content').path('/').first()
@@ -47,8 +47,16 @@ useHead({
           logo: AbsoluteUrl(meta.value?.logo),
           image: AbsoluteUrl(meta.value?.hero?.image),
           email: meta.value?.footer_cta?.email,
+          telephone: BUSINESS.phone,
+          legalName: BUSINESS.legalName,
           sameAs: [meta.value?.footer_cta?.instagram_link].filter(Boolean),
-          address: { '@type': 'PostalAddress', addressCountry: 'FR' },
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: BUSINESS.street,
+            postalCode: BUSINESS.postalCode,
+            addressLocality: BUSINESS.city,
+            addressCountry: BUSINESS.country,
+          },
         },
         {
           '@type': 'WebSite',

@@ -25,7 +25,7 @@
 
   <div class="max-w-6xl mx-auto p-6 mt-20">
     <div class="products-list">
-      <div v-for="product in products" class="products">
+      <div v-for="product in products" :key="product.url" class="products">
            <NuxtLink :to="`/product/${product.url}`"> 
            <NuxtImg class="miniature mx-auto"
                 v-if="product.variants?.[0]?.images?.[0]"

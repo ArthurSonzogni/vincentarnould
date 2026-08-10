@@ -2,6 +2,18 @@ export const SITE_URL = 'https://vincentarnould.com';
 
 export const SITE_NAME = 'Vincent Arnould';
 
+// Coordonnees legales de l'entreprise (EI Vincent Arnould). Elles doivent rester
+// identiques ici, dans les mentions legales et sur la fiche Stripe : Google
+// rapproche ces informations pour confirmer qu'il s'agit d'un vrai commerce.
+export const BUSINESS = {
+  legalName: 'EI Vincent Arnould',
+  street: '5 rue Pajol',
+  postalCode: '75018',
+  city: 'Paris',
+  country: 'FR',
+  phone: '+33617402013',
+};
+
 // Les balises Open Graph exigent une URL absolue : Instagram, WhatsApp et
 // Facebook ignorent une image declaree en chemin relatif.
 export const AbsoluteUrl = (path) => (path ? new URL(path, SITE_URL).href : '');
