@@ -33,6 +33,14 @@ const { data: document } = await useAsyncData(() =>
   queryCollection('content').path('/mentions-legales').first()
 );
 
+const seoTitle = 'Mentions légales | Vincent Arnould';
+
+useSeoMeta({
+  title: seoTitle,
+  description: "Mentions légales du site Vincent Arnould : éditeur, hébergeur et coordonnées.",
+  ogTitle: seoTitle,
+  ogDescription: "Mentions légales du site Vincent Arnould : éditeur, hébergeur et coordonnées.",
+});
 </script>
 
 <style scoped>

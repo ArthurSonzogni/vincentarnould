@@ -1,18 +1,11 @@
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { SITE_URL } from './composables/site.mjs'
+import { NOINDEX, SITE_URL } from './composables/site.mjs'
 
 // Jeton Cloudflare Web Analytics (public, sans cookie).
 // A recuperer dans Cloudflare > Analytics & Logs > Web Analytics.
 // Tant qu'il est vide, aucun script de mesure n'est charge.
 const CLOUDFLARE_ANALYTICS_TOKEN = '05796ad257d24890a036f33f487010f4'
-
-// Pages encore a l'etat d'ebauche : accessibles, mais tenues hors du sitemap et
-// des robots tant que leur contenu n'est pas redige. Retirer la ligne une fois
-// la fiche remplie.
-const NOINDEX = [
-  '/product/dog-necklace', // titre "Coming soon", description vide
-]
 
 // Routes des pages dynamiques, lues depuis le frontmatter des fichiers de contenu.
 // Sans elles, les fiches produit ne sont pas generees et renvoient une 404.
@@ -42,6 +35,9 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
+      // Le site est integralement redige en francais : sans cet attribut, Google
+      // doit deviner la langue pour decider a quel public servir les pages.
+      htmlAttrs: { lang: 'fr' },
       link: [
         { rel: 'icon', type: 'image/png', href: '/images/file_00000000a1a4720aa2ba50819bc1daad-2.png' }
       ],
@@ -88,12 +84,13 @@ export default defineNuxtConfig({
         `<?xml version="1.0" encoding="UTF-8"?>\n`
         + `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
       )
-      const disallow = ['/audit', ...NOINDEX]
-        .map(path => `Disallow: ${path}`)
-        .join('\n')
+      // Seul /audit est bloque a l'exploration : c'est un outil interne, sans
+      // lien entrant. Les brouillons de NOINDEX restent explorables et portent
+      // une balise noindex (cf. app.vue), la seule methode qui les retire
+      // vraiment de l'index.
       writeFileSync(
         join(dir, 'robots.txt'),
-        `User-agent: *\nAllow: /\n${disallow}\n\nSitemap: ${SITE_URL}/sitemap.xml\n`,
+        `User-agent: *\nAllow: /\nDisallow: /audit\n\nSitemap: ${SITE_URL}/sitemap.xml\n`,
       )
     },
   },

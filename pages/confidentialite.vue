@@ -33,6 +33,14 @@ const { data: document } = await useAsyncData(() =>
   queryCollection('content').path('/confidentialite').first()
 );
 
+const seoTitle = 'Politique de confidentialité | Vincent Arnould';
+
+useSeoMeta({
+  title: seoTitle,
+  description: "Comment vos données personnelles sont collectées et utilisées sur le site Vincent Arnould.",
+  ogTitle: seoTitle,
+  ogDescription: "Comment vos données personnelles sont collectées et utilisées sur le site Vincent Arnould.",
+});
 </script>
 
 <style scoped>

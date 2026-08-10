@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { GetCollections } from '/composables/collections';
-import { AbsoluteUrl, SITE_URL } from '/composables/site';
+import { AbsoluteUrl, CanonicalUrl, SITE_NAME, SITE_URL } from '/composables/site';
 
 const { data: home } = await useAsyncData(() =>
   queryCollection('content').path('/').first()
@@ -24,9 +24,43 @@ useSeoMeta({
   ogTitle: seoTitle,
   ogDescription: seoDescription,
   ogImage: AbsoluteUrl(meta.value?.hero?.image),
-  ogUrl: SITE_URL,
+  ogUrl: CanonicalUrl('/'),
   ogType: 'website',
   twitterCard: 'summary_large_image',
+})
+
+// Identite de la marque : c'est ce qui relie le site, le logo et le compte
+// Instagram a une meme entite aux yeux de Google, condition pour apparaitre
+// dans le panneau de connaissance sur une recherche "Vincent Arnould".
+useHead({
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          '@id': `${SITE_URL}/#organization`,
+          name: SITE_NAME,
+          url: CanonicalUrl('/'),
+          description: seoDescription,
+          logo: AbsoluteUrl(meta.value?.logo),
+          image: AbsoluteUrl(meta.value?.hero?.image),
+          email: meta.value?.footer_cta?.email,
+          sameAs: [meta.value?.footer_cta?.instagram_link].filter(Boolean),
+          address: { '@type': 'PostalAddress', addressCountry: 'FR' },
+        },
+        {
+          '@type': 'WebSite',
+          '@id': `${SITE_URL}/#website`,
+          name: SITE_NAME,
+          url: CanonicalUrl('/'),
+          inLanguage: 'fr-FR',
+          publisher: { '@id': `${SITE_URL}/#organization` },
+        },
+      ],
+    }),
+  }],
 })
 
 const showVideo = ref(false);
@@ -52,7 +86,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
   <div class="storytelling">
     <div class="hero">
       <div class="hero-background">
-        <img :class="{ 'fade-out': showVideo && meta.hero?.video_id }" :src="meta.hero?.image || '/images/about/vincent.jpeg'" alt="Atelier" class="hero-image" />
+        <img :class="{ 'fade-out': showVideo && meta.hero?.video_id }" :src="meta.hero?.image || '/images/about/vincent.jpeg'" fetchpriority="high" alt="Vincent Arnould, lapidaire en pierres de couleur, dans son atelier" class="hero-image" />
         <iframe 
           v-if="showVideo && meta.hero?.video_id"
           class="hero-video"
@@ -103,13 +137,15 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
           >
             <img
               :src="typeof item === 'string' ? item : item.image"
+              loading="lazy"
+              decoding="async"
               :alt="section.title"
               class="carousel-image"
             />
           </UCarousel>
         </div>
         <div v-else-if="section.image" class="image-with-caption">
-          <img :src="section.image" :alt="section.title" />
+          <img :src="section.image" loading="lazy" decoding="async" :alt="section.title" />
           <p v-if="section.image_caption" class="image-caption">{{ section.image_caption }}</p>
         </div>
       </div>
@@ -121,7 +157,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
         <div class="gallery-grid" :class="`items-${meta.gallery.length}`">
           <div v-for="(item, idx) in meta.gallery" :key="idx" class="gallery-item">
             <div class="gallery-image-wrapper">
-              <img :src="item.image" :alt="item.image_caption || 'Galerie image'" />
+              <img :src="item.image" loading="lazy" decoding="async" :alt="item.image_caption || 'Galerie image'" />
             </div>
             <p v-if="item.image_caption" class="gallery-caption">{{ item.image_caption }}</p>
           </div>
@@ -143,6 +179,8 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
               <img 
                 v-if="product?.variants?.[0]?.images?.[0]"
                 :src="product.variants[0].images[0].image" 
+                loading="lazy"
+                decoding="async"
                 :alt="product.title" 
               />
             </div>
@@ -169,6 +207,8 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
               <img 
                 v-if="product?.variants?.[0]?.images?.[0]"
                 :src="product.variants[0].images[0].image" 
+                loading="lazy"
+                decoding="async"
                 :alt="product.title" 
               />
             </div>

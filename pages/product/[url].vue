@@ -2,10 +2,16 @@
   <div v-if="product">
     <div class="main-container">
       <div class="images">
+        <!-- Seule la premiere image est chargee en priorite : c'est le plus gros
+             element visible a l'ouverture, celui que Google chronometre (LCP).
+             Les suivantes attendent le defilement. -->
         <img class="image"
              v-for="(image, index) in product?.variants?.[variant]?.images"
              :key="index"
              :src="image.image"
+             :loading="index === 0 ? 'eager' : 'lazy'"
+             :fetchpriority="index === 0 ? 'high' : 'auto'"
+             decoding="async"
              :alt="`${product.title} - ${product?.variants?.[variant]?.title}`"
              />
       </div>
@@ -160,10 +166,10 @@
     <template v-for="collection in orderedCollections">
       <div v-if="collection.products.length > 0" class="container mt-24 mb-24">
         <div class="text-center mb-12">
-          <h2 class="text-xs tracking-[0.3em] text-gray-400 uppercase mb-3">
+          <p class="text-xs tracking-[0.3em] text-gray-400 uppercase mb-3">
             {{ collection.url === product.collection ? 'Dans la même collection' : 'Découvrir aussi' }}
-          </h2>
-          <h1 class="text-4xl font-title">{{ collection.title }}</h1>
+          </p>
+          <h2 class="text-4xl font-title">{{ collection.title }}</h2>
         </div>
 
         <div class="other-products-list">
@@ -177,6 +183,8 @@
               <img class="miniature w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                    v-if="p?.variants?.[0]?.images?.[0]"
                    :src="p?.variants?.[0]?.images?.[0]?.image"
+                   loading="lazy"
+                   decoding="async"
                    :alt="p.title"
               />
             </div>
@@ -201,7 +209,7 @@
 <script setup lang="ts">
 
 import { GetCollections } from '/composables/collections';
-import { AbsoluteUrl } from '/composables/site';
+import { AbsoluteUrl, CanonicalUrl, ParsePrice, SITE_NAME } from '/composables/site';
 
 const route = useRoute();
 const router = useRouter();
@@ -256,9 +264,89 @@ useSeoMeta({
   ogTitle: `${product?.title} | Vincent Arnould`,
   ogDescription: product?.description,
   ogImage: () => AbsoluteUrl(product?.variants?.[variant.value]?.images?.[0]?.image),
-  ogUrl: AbsoluteUrl(`/product/${url}`),
+  ogUrl: CanonicalUrl(`/product/${url}`),
   ogType: 'website',
   twitterCard: 'summary_large_image',
+});
+
+// Donnees structurees produit : c'est ce qui permet a Google d'afficher le prix
+// et la disponibilite directement dans les resultats de recherche. Les pieces
+// affichees "Sur demande" n'ont pas de montant ferme, donc pas d'offre publiee.
+const productSchema = computed(() => {
+  const parentCollection = collections[product?.collection];
+  const prices = (product?.variants || [])
+    .map(v => ParsePrice(v.price))
+    .filter(price => price !== null);
+
+  const schema: Record<string, unknown> = {
+    '@type': 'Product',
+    name: product?.title?.trim(),
+    description: product?.description,
+    url: CanonicalUrl(`/product/${url}`),
+    brand: { '@type': 'Brand', name: SITE_NAME },
+    image: (product?.variants || [])
+      .flatMap(v => (v.images || []).map(i => AbsoluteUrl(i.image)))
+      .filter(Boolean)
+      .slice(0, 10),
+  };
+
+  if (parentCollection) {
+    schema.category = parentCollection.title?.trim();
+  }
+
+  if (product?.variants?.length > 1) {
+    schema.hasVariant = product.variants.map(v => ({
+      '@type': 'Product',
+      name: `${product.title?.trim()} — ${v.title?.trim()}`,
+      color: v.color,
+    }));
+  }
+
+  if (prices.length > 0) {
+    schema.offers = {
+      '@type': 'Offer',
+      price: Math.min(...prices),
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+      url: CanonicalUrl(`/product/${url}`),
+      seller: { '@type': 'Organization', name: SITE_NAME },
+    };
+  }
+
+  return schema;
+});
+
+useHead({
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: computed(() => JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        productSchema.value,
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Accueil', item: CanonicalUrl('/') },
+            ...(collections[product?.collection]
+              ? [{
+                  '@type': 'ListItem',
+                  position: 2,
+                  name: collections[product.collection].title,
+                  item: CanonicalUrl(`/collection/${product.collection}`),
+                }]
+              : []),
+            {
+              '@type': 'ListItem',
+              position: collections[product?.collection] ? 3 : 2,
+              name: product?.title?.trim(),
+              item: CanonicalUrl(`/product/${url}`),
+            },
+          ],
+        },
+      ],
+    })),
+  }],
 });
 </script>
 

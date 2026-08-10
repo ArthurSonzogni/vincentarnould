@@ -36,6 +36,14 @@ const { data: document } = await useAsyncData(() =>
   queryCollection('content').path('/cgu').first()
 );
 
+const seoTitle = "Conditions Générales d'Utilisation | Vincent Arnould";
+
+useSeoMeta({
+  title: seoTitle,
+  description: "Les conditions générales d'utilisation du site Vincent Arnould, joaillier lapidaire.",
+  ogTitle: seoTitle,
+  ogDescription: "Les conditions générales d'utilisation du site Vincent Arnould, joaillier lapidaire.",
+});
 </script>
 
 <style scoped>

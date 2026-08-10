@@ -3,6 +3,8 @@
   <img class="cover-image"
        v-if="collection.cover_image"
        :src="collection.cover_image"
+       fetchpriority="high"
+       :alt="collection.title"
        />
 
   <div class="max-w-6xl mx-auto p-6 mt-20">
@@ -26,6 +28,9 @@
            <img class="miniature mx-auto"
                 v-if="product.variants?.[0]?.images?.[0]"
                 :src="product.variants[0].images[0].image"
+                loading="lazy"
+                decoding="async"
+                :alt="product.title"
                 />
            <h2>{{ product.title }}</h2>
            <p class="price">{{ product.variants?.[0]?.price || 'Sur demande' }}</p>
@@ -50,6 +55,9 @@
         <img
           v-if="item.image"
           :src="item.image"
+          loading="lazy"
+          decoding="async"
+          :alt="collection.title"
           class="rounded-lg"
           />
       </UCarousel>
@@ -61,14 +69,62 @@
 <script setup lang="ts">
 
 import { GetCollections } from '/composables/collections';
+import { AbsoluteUrl, CanonicalUrl, SITE_NAME } from '/composables/site';
 
-const config = useRuntimeConfig();
 const route = useRoute();
 const url = route.params.url;
 const collections = await GetCollections();
 const collection = collections[url];
 const products = collection.products;
 
+const seoTitle = `${collection.title} | ${SITE_NAME}`;
+
+useSeoMeta({
+  title: seoTitle,
+  description: collection.description,
+  ogTitle: seoTitle,
+  ogDescription: collection.description,
+  ogImage: AbsoluteUrl(collection.cover_image || products?.[0]?.variants?.[0]?.images?.[0]?.image),
+  ogUrl: CanonicalUrl(`/collection/${url}`),
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+});
+
+// Le fil d'Ariane s'affiche sous le titre dans les resultats Google, a la place
+// de l'URL brute ; la liste de produits aide a rattacher chaque fiche a sa
+// collection.
+useHead({
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Accueil', item: CanonicalUrl('/') },
+            { '@type': 'ListItem', position: 2, name: collection.title, item: CanonicalUrl(`/collection/${url}`) },
+          ],
+        },
+        {
+          '@type': 'CollectionPage',
+          name: collection.title,
+          description: collection.description,
+          url: CanonicalUrl(`/collection/${url}`),
+          mainEntity: {
+            '@type': 'ItemList',
+            itemListElement: products.map((product, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              name: product.title,
+              url: CanonicalUrl(`/product/${product.url}`),
+            })),
+          },
+        },
+      ],
+    }),
+  }],
+});
 </script>
 
 

@@ -36,6 +36,14 @@ const { data: document } = await useAsyncData(() =>
   queryCollection('content').path('/cgv').first()
 );
 
+const seoTitle = 'Conditions Générales de Vente | Vincent Arnould';
+
+useSeoMeta({
+  title: seoTitle,
+  description: "Les conditions générales de vente applicables aux commandes de bijoux Vincent Arnould : commande, livraison, rétractation et garanties.",
+  ogTitle: seoTitle,
+  ogDescription: "Les conditions générales de vente applicables aux commandes de bijoux Vincent Arnould : commande, livraison, rétractation et garanties.",
+});
 </script>
 
 <style scoped>
