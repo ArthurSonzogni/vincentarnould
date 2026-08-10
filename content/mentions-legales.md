@@ -9,8 +9,9 @@ Le présent site est édité par :
 - **Adresse** : 5 rue Pajol, 75018 Paris, France
 - **Téléphone** : +33 6 17 40 20 13
 - **Email** : vinc388@hotmail.fr
-- **Numéro SIRET** : `[À COMPLÉTER : SIRET à 14 chiffres]`
-- **Numéro de TVA intracommunautaire** : `[À COMPLÉTER, ou mentionner « TVA non applicable, article 293 B du CGI » si franchise en base]`
+- **Numéro SIRET** : 827 753 716 00022
+- **Numéro de TVA intracommunautaire** : FR50 827 753 716
+- **Code APE** : 32.12Z — Fabrication d'articles de joaillerie et bijouterie
 
 **Directeur de la publication** : Vincent Arnould
 

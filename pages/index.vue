@@ -49,6 +49,8 @@ useHead({
           email: meta.value?.footer_cta?.email,
           telephone: BUSINESS.phone,
           legalName: BUSINESS.legalName,
+          vatID: BUSINESS.vatId,
+          taxID: BUSINESS.siret,
           sameAs: [meta.value?.footer_cta?.instagram_link].filter(Boolean),
           address: {
             '@type': 'PostalAddress',

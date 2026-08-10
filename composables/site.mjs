@@ -12,6 +12,9 @@ export const BUSINESS = {
   city: 'Paris',
   country: 'FR',
   phone: '+33617402013',
+  // Identifiants publics, verifies sur annuaire-entreprises.data.gouv.fr.
+  siret: '82775371600022',
+  vatId: 'FR50827753716',
 };
 
 // Les balises Open Graph exigent une URL absolue : Instagram, WhatsApp et
