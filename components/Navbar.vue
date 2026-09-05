@@ -32,9 +32,13 @@ const logo = computed(() => home.value?.meta?.logo || home.value?.logo);
     v-model:open="open"
   >
     <!-- Un bouton hamburger chic flottant (Trigger) -->
+    <!-- Fond volontairement opaque : le bouton reste fixe au-dessus de toute la
+         page, y compris des sections blanches de la boutique, ou une icone
+         blanche sur un voile a 20 % devenait invisible. -->
     <button
       @click="open = true"
-      class="fixed top-6 left-6 z-50 bg-black/20 hover:bg-black/40 backdrop-blur-md text-white border border-white/30 rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300"
+      aria-label="Ouvrir le menu"
+      class="fixed top-6 left-6 z-50 bg-black/70 hover:bg-black backdrop-blur-md text-white border border-white/40 rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300"
     >
       <UIcon name="i-lucide-menu" class="size-6" />
     </button>
