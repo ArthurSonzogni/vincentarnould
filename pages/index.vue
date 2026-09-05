@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { GetCollections } from '/composables/collections';
 import { AbsoluteUrl, BUSINESS, CanonicalUrl, SITE_NAME, SITE_URL } from '/composables/site';
 
@@ -74,33 +74,75 @@ useHead({
 })
 
 const showVideo = ref(false);
+// La photo reste affichee sous la video et ne s'efface qu'une fois la lecture
+// reellement commencee. Ni un minuteur ni l'evenement "load" de l'iframe ne
+// suffisent : YouTube peut avoir charge son lecteur et n'afficher qu'un carre
+// noir, le temps de mettre l'image en tampon ou parce que la lecture
+// automatique est refusee. C'est le cas courant dans le navigateur integre de
+// Facebook et d'Instagram, d'ou vient la majorite du trafic.
+const videoReady = ref(false);
 const isMuted = ref(true);
 
 const toggleMute = () => {
   isMuted.value = !isMuted.value;
 };
 
+const YOUTUBE_ORIGINS = [
+  'https://www.youtube-nocookie.com',
+  'https://www.youtube.com',
+];
+
+// Le lecteur n'envoie son etat que si on le lui demande : ce message est la
+// poignee de main prevue par l'API iframe de YouTube (enablejsapi=1).
+const askPlayerForState = (event) => {
+  event.target?.contentWindow?.postMessage(
+    JSON.stringify({ event: 'listening', id: 'hero' }),
+    '*',
+  );
+};
+
+// L'etat 1 signifie "en cours de lecture" : c'est le seul moment ou l'on sait
+// qu'il y a vraiment une image a montrer.
+const onPlayerMessage = (event) => {
+  if (!YOUTUBE_ORIGINS.includes(event.origin)) return;
+  let data;
+  try {
+    data = JSON.parse(event.data);
+  } catch {
+    return;
+  }
+  const playing =
+    (data?.event === 'onStateChange' && data.info === 1) ||
+    (data?.event === 'infoDelivery' && data.info?.playerState === 1);
+  if (playing) videoReady.value = true;
+};
+
 onMounted(() => {
+  window.addEventListener('message', onPlayerMessage);
   setTimeout(() => {
     showVideo.value = true;
   }, 3500); // Transition after 3.5 seconds
 });
 
+onBeforeUnmount(() => {
+  window.removeEventListener('message', onPlayerMessage);
+});
+
 const collections = await GetCollections();
 
 const athenaProducts = computed(() => collections['athena']?.products || []);
-const dogProducts = computed(() => collections['accessories-for-dogs']?.products || []);
 </script>
 
 <template>
   <div class="storytelling">
     <div class="hero">
       <div class="hero-background">
-        <NuxtImg :class="{ 'fade-out': showVideo && meta.hero?.video_id }" :src="meta.hero?.image || '/images/about/vincent.jpeg'" sizes="sm:100vw md:100vw lg:100vw" format="webp" fetchpriority="high" alt="Vincent Arnould, lapidaire en pierres de couleur, dans son atelier" class="hero-image" />
-        <iframe 
+        <NuxtImg :src="meta.hero?.image || '/images/about/vincent.jpeg'" sizes="sm:100vw md:100vw lg:100vw" format="webp" fetchpriority="high" alt="Vincent Arnould, lapidaire en pierres de couleur, dans son atelier" class="hero-image" />
+        <iframe
           v-if="showVideo && meta.hero?.video_id"
-          class="hero-video"
-          :src="`https://www.youtube-nocookie.com/embed/${meta.hero.video_id}?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=${meta.hero.video_id}&controls=0&showinfo=0&rel=0`"
+          :class="['hero-video', { 'is-ready': videoReady }]"
+          @load="askPlayerForState"
+          :src="`https://www.youtube-nocookie.com/embed/${meta.hero.video_id}?enablejsapi=1&autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=${meta.hero.video_id}&controls=0&showinfo=0&rel=0`"
           title="Vincent Arnould, lapidaire en pierres de couleur, au travail dans son atelier"
           loading="lazy"
           frameborder="0"
@@ -112,10 +154,40 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
         <h1 class="font-title">{{ meta.hero?.title || 'L\'Artisanat d\'Exception' }}</h1>
         <p class="subtitle">{{ meta.hero?.subtitle || 'Vincent Arnould, Lapidaire' }}</p>
       </div>
-      <div v-if="showVideo && meta.hero?.video_id" class="hero-controls">
+      <div v-if="videoReady" class="hero-controls">
         <button @click="toggleMute" class="mute-btn">
           <UIcon :name="isMuted ? 'i-lucide-volume-x' : 'i-lucide-volume-2'" class="size-6" />
         </button>
+      </div>
+    </div>
+
+    <div class="products-selection">
+      <div class="container-inner">
+        <h2 class="font-title section-title">La Collection Athéna</h2>
+        <div class="product-grid">
+          <NuxtLink 
+            v-for="product in athenaProducts" 
+            :key="product.url" 
+            :to="`/product/${product.url}`"
+            class="product-card"
+          >
+            <div class="image-wrapper">
+              <NuxtImg
+                v-if="product?.variants?.[0]?.images?.[0]"
+                :src="product.variants[0].images[0].image"
+                sizes="sm:50vw md:33vw lg:400px"
+                format="webp"
+                loading="eager"
+                decoding="async"
+                :alt="product.title"
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">{{ product.title }}</h3>
+              <p class="product-price">{{ product?.variants?.[0]?.price || '' }}</p>
+            </div>
+          </NuxtLink>
+        </div>
       </div>
     </div>
 
@@ -165,7 +237,7 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
     </div>
 
     <!-- Galerie d'images individuelles -->
-    <div v-if="meta?.gallery && meta.gallery.length > 0" class="gallery-section bg-gray">
+    <div v-if="meta?.gallery && meta.gallery.length > 0" class="gallery-section">
       <div class="container-inner">
         <div class="gallery-grid" :class="`items-${meta.gallery.length}`">
           <div v-for="(item, idx) in meta.gallery" :key="idx" class="gallery-item">
@@ -174,66 +246,6 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
             </div>
             <p v-if="item.image_caption" class="gallery-caption">{{ item.image_caption }}</p>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="products-selection">
-      <div class="container-inner">
-        <h2 class="font-title section-title">La Collection Athéna</h2>
-        <div class="product-grid">
-          <NuxtLink 
-            v-for="product in athenaProducts" 
-            :key="product.url" 
-            :to="`/product/${product.url}`"
-            class="product-card"
-          >
-            <div class="image-wrapper">
-              <NuxtImg
-                v-if="product?.variants?.[0]?.images?.[0]"
-                :src="product.variants[0].images[0].image"
-                sizes="sm:50vw md:33vw lg:400px"
-                format="webp"
-                loading="eager"
-                decoding="async"
-                :alt="product.title"
-              />
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">{{ product.title }}</h3>
-              <p class="product-price">{{ product?.variants?.[0]?.price || '' }}</p>
-            </div>
-          </NuxtLink>
-        </div>
-      </div>
-    </div>
-
-    <div class="products-selection bg-gray">
-      <div class="container-inner">
-        <h2 class="font-title section-title">La Collection Canin / Chat</h2>
-        <div class="product-grid">
-          <NuxtLink 
-            v-for="product in dogProducts" 
-            :key="product.url" 
-            :to="`/product/${product.url}`"
-            class="product-card"
-          >
-            <div class="image-wrapper">
-              <NuxtImg
-                v-if="product?.variants?.[0]?.images?.[0]"
-                :src="product.variants[0].images[0].image"
-                sizes="sm:50vw md:33vw lg:400px"
-                format="webp"
-                loading="eager"
-                decoding="async"
-                :alt="product.title"
-              />
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">{{ product.title }}</h3>
-              <p class="product-price">{{ product?.variants?.[0]?.price || '' }}</p>
-            </div>
-          </NuxtLink>
         </div>
       </div>
     </div>
@@ -303,10 +315,6 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
   opacity: 1;
 }
 
-.hero-image.fade-out {
-  opacity: 0;
-}
-
 .hero-video {
   position: absolute;
   top: 50%;
@@ -318,12 +326,14 @@ const dogProducts = computed(() => collections['accessories-for-dogs']?.products
   transform: translate(-50%, -50%);
   pointer-events: none;
   filter: brightness(0.5);
-  animation: fadeIn 2s ease-in-out;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Tant que YouTube n'a pas repondu, l'iframe reste invisible et laisse voir la
+   photo posee dessous, au lieu de couvrir le heros d'un rectangle noir. */
+.hero-video.is-ready {
+  opacity: 1;
 }
 
 .hero-text {
