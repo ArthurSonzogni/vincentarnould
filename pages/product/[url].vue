@@ -59,7 +59,9 @@
               Commander
             </UButton>
             <div v-else class="mt-6 p-4 border border-gray-100 bg-gray-50 text-center text-sm text-gray-500 italic">
-              Cette pièce est disponible sur demande. Contactez-nous pour plus d'informations.
+              Cette pièce est disponible sur demande.
+              <a href="mailto:vinc388@hotmail.fr" class="underline not-italic text-black hover:text-yellow-700 transition-colors">Contactez Vincent Arnould</a>
+              pour personnaliser votre commande.
             </div>
 
             <div v-if="isRing" class="ring-size mt-4 p-3 border border-gray-100 bg-gray-50 text-xs text-gray-600 text-center">
