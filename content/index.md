@@ -44,9 +44,7 @@ footer_cta:
   subtitle: L'opportunité de posséder un bijou entièrement conçu pour vous ou
     votre chien.
   scarcity: "Afin de garantir l'excellence de chaque pièce, je n'accepte qu'un
-    nombre limité de commandes sur-mesure par mois. Service de lapidage proposé
-    également : polissage de pierres, retouche pierres de centre, ajustage sur
-    œuvre."
+    nombre limité de commandes sur-mesure par mois. "
   email: vinc388@hotmail.fr
   instagram_handle: "@vincentarnould18"
   instagram_link: https://www.instagram.com/vincentarnould18
