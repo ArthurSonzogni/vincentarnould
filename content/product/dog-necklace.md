@@ -8,7 +8,7 @@ variants:
     price: A partir de 420€
     color: "Toutes les couleurs et cuir disponible  "
     images:
-      - image: /images/file_000000005c4872308bcbfdeffbb8e385.png
+      - image: /images/file_0000000025d481f491d1685375476a00.png
       - image: /images/file_00000000ea1471f49f443cbd2673a680.png
       - image: /images/file_00000000c3a471f4ad98fc782988aafb.png
       - image: /images/file_00000000486871f4ba533f322126f024.png
